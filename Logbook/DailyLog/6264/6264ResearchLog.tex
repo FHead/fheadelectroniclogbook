@@ -104,7 +104,7 @@ The QIE hardware timing offset is adjusted since runs 146XXX!
 It doesn't seem to be affecting anything either.  Jobs are successful.
 \item The castor-friendly safety sleep time (10s) is getting annoying now that there is more statistics.  Let's try to reduce it to 3 seconds.
 \item Data looked OK at first glance.
-\item The mass of any two global muons looks nice, see figure \ref{Figure_6264DiGlobalMuonMass_DataExceptLast}.
+\item The mass of any two global muons looks nice, see figure \ref{Figure_6264DiGlobalMuonMass_DataAll}.
 \end{enumerate}
 
 \begin{figure*}
@@ -112,7 +112,7 @@ It doesn't seem to be affecting anything either.  Jobs are successful.
 \caption{Mass of any two global muons from all processed data so far (up to run 144114).  Peaks from right to left are speculated to be
 Z (\tweakedtilde90), Upsilon family (\tweakedtilde10), J/Psi(1s, 2s) (\tweakedtilde3), phi (\tweakedtilde1), rho (0.7\tweakedtilde0.8), and muonium (\tweakedtilde0.2).
 (ps. The last one was just kidding.  It's probably from doubly reconstructed ghost muons.  Though further investigation is needed.)}
-\label{Figure_6264DiGlobalMuonMass_DataExceptLast}
+\label{Figure_6264DiGlobalMuonMass_DataAll}
 \end{figure*}
 
 \DailySection{Meeting notes}
@@ -123,14 +123,27 @@ Z (\tweakedtilde90), Upsilon family (\tweakedtilde10), J/Psi(1s, 2s) (\tweakedti
 \item There is some narrow peak discovered (!?)
 \item Maria: the comment system needs to be rethought.  Actual commitment is needed.
 Comments on physics, not styles.
+\item Artur gave a presentation on the recent drama on Hcal.  Accidental unmasking of hcal bad channels,
+severity level in HLT
+\item Piotr reports on the peak of opposite-sign dimuons around 244 GeV.
+\item Update from Jan.  Z->mumu vs. mumu+gamma, Energy scale of photon.
+\item Action items for next Tuesday to be emailed out by Dorian
 \end{enumerate}
 
 \DailySection{Reflection}
 
+To fully understand hcal noise, we need to have real categories (instead of the simplistic ion/hpd/rbx picture),
+and monitor the change over time to obtain a control sample estimate of the amount of noise of each type for all RBXs.
+
+
 \DailySection{Goals for next work day}
 
-% \begin{enumerate}
-% \item Meow.
-% \end{enumerate}
+\begin{enumerate}
+\item Sort out goals for Hcal noise line
+\item Make sure how prescale works with multiple triggers
+\item Make a list of to-do items for candle analysis
+\item Review/summarize progress so far on pulse shape variables
+\item Check strategy on Z shape fit, find out ways to contrain RooFormulaVar
+\end{enumerate}
 
 
