@@ -45,21 +45,21 @@ Not all of them need to be filled in.
 \DailySection{Reading exotica hotline code}
 
 The code is in package
-\text{UserCode/ExoticaHotLine/src/HotlineSkimCode/RecoSkim}.
+\texttt{UserCode/ExoticaHotLine/src/HotlineSkimCode/RecoSkim}.
 In the final configuration file, each filter is a module, and
 there are various paths assembling them together.  In the end
-the events are kept using the \text{SelectEvents} field in
-\text{PoolOutputModule}.
+the events are kept using the \texttt{SelectEvents} field in
+\texttt{PoolOutputModule}.
 
 Even though it need not be the case, it appears that all the
-filters are implemented together as a \text{EDFilter} named \text{RecoSkim}.
+filters are implemented together as a \texttt{EDFilter} named \texttt{RecoSkim}.
 Different filters are the same module with different parameters.
 For Hcal noise we definitely can implement multiple filter modules.
 
 There are two modules in the hotline code directory.  One is the
-aforementioned \text{RecoSkim} filter, which looks like basic cut-based
+aforementioned \texttt{RecoSkim} filter, which looks like basic cut-based
 selections with cut values specified in the configuration file.
-The other one is an analyzer \text{HotlineSummary}, and it appears to
+The other one is an analyzer \texttt{HotlineSummary}, and it appears to
 be printing various summary values from edm collections.
 The printout is long....this module is probably only for debugging purposes.
 

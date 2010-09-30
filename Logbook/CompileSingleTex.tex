@@ -1,16 +1,18 @@
- \documentclass[10pt,a4paper,onecolumn]{report}
+\documentclass[10pt,a4paper,onecolumn]{report}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{makeidx}
+\usepackage{graphicx}
 \usepackage{hyperref}
+
 \hypersetup{
     colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
+    % citecolor=black,
+    % filecolor=black,
+    % linkcolor=black,
+    % urlcolor=black
 }
 
 \begin{document}
@@ -25,6 +27,8 @@
 \newcommand{\DailyTitle}[1]{\section{#1}}
 \newcommand{\DailySection}[1]{\subsection{#1}}
 \newcommand{\DailySubSection}[1]{\subsubsection{#1}}
+
+\newcommand{\tweakedtilde}{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
 
 % \setcounter{tocdepth}{1}
 
