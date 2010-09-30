@@ -1,0 +1,42 @@
+ \documentclass[10pt,a4paper,onecolumn]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\begin{document}
+
+\author{Yi Chen\\
+   California institute of technology\\
+   \texttt{chen.yi.first@gmail.com}}
+\title{Daily Research Logs}
+\date{\today}
+\maketitle
+
+\newcommand{\DailyTitle}[1]{\section{#1}}
+\newcommand{\DailySection}[1]{\subsection{#1}}
+\newcommand{\DailySubSection}[1]{\subsubsection{#1}}
+
+% \setcounter{tocdepth}{1}
+
+\tableofcontents
+
+\chapter{September 2010}
+\include{DailyLog/6263/6263ResearchLog}
+\include{DailyLog/6264/6264ResearchLog}
+
+\chapter{October 2010}
+\include{DailyLog/6265/6265ResearchLog}
+\include{DailyLog/6266/6266ResearchLog}
+
+\end{document}
+
