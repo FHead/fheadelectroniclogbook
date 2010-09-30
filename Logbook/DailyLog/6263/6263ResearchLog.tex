@@ -1,0 +1,90 @@
+\DailyTitle{6263 Log (Septemper 29, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Catch up with Maria
+\item Get some rest
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Back from vacation.  Trying to catch up.
+\item Copied exotica hotline code to CMSDetNoiseLine package.  Nothing modified.
+\item Setup new logbook in latex.
+\item Start reading exotica hotline code.
+\end{enumerate}
+
+\DailySection{Latex logbook}
+
+The main goal is to have a logbook that is easily searchable and scalable.
+Original handwritten logbooks have the advantage of sketching ideas, but
+is not suitable for searching or write texts with a lot of revisions.
+In the near future I might start using scanners to scan sketches as pictures
+and include them in the latex logbook.  To make it scalable, each day
+is to have its own tex segment which can be included in a tex file that
+does the structuring.  The title and (sub-) sections are newly defined
+commands that can be reassigned in the structuring tex file.
+
+The structure of each day is as follows:
+
+\begin{enumerate}
+\item Daily goals.
+\item Summary of things done.
+\item For each non-trivial item, write something about it.
+\item Meeting notes.
+\item Anything else worth noting.
+\item Reflection.  What was done and what could be done better.
+\item Progress on studying, summary on paper reading.
+\item Minimum goal for the next workday.
+\end{enumerate}
+
+Not all of them need to be filled in.
+
+\DailySection{Reading exotica hotline code}
+
+The code is in package
+\text{UserCode/ExoticaHotLine/src/HotlineSkimCode/RecoSkim}.
+In the final configuration file, each filter is a module, and
+there are various paths assembling them together.  In the end
+the events are kept using the \text{SelectEvents} field in
+\text{PoolOutputModule}.
+
+Even though it need not be the case, it appears that all the
+filters are implemented together as a \text{EDFilter} named \text{RecoSkim}.
+Different filters are the same module with different parameters.
+For Hcal noise we definitely can implement multiple filter modules.
+
+There are two modules in the hotline code directory.  One is the
+aforementioned \text{RecoSkim} filter, which looks like basic cut-based
+selections with cut values specified in the configuration file.
+The other one is an analyzer \text{HotlineSummary}, and it appears to
+be printing various summary values from edm collections.
+The printout is long....this module is probably only for debugging purposes.
+
+
+\DailySection{Reflection}
+
+Need to think through the purpose of hcal noise hotline.
+I want to be able to estimate noise rate (of various type)
+for any given run from the hotline.  Also it will be good to
+include some kind of correlation with beam luminosity and/or
+triggers.
+
+On latex logbook, need to think about possible types of extensions
+and how to implement them.  In principle the current framework
+should be enough.
+
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Skim through Hcal noise meetings
+\item Skim through vecbos meetings
+\item Catch up with progress on the candle note and make a list of items to do
+\item Move the daily latex logbook to svn
+\item Catch Maria
+\end{enumerate}
+
+
