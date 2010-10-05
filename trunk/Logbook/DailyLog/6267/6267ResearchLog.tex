@@ -1,0 +1,79 @@
+\DailyTitle{6267 Log (October 3, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Understand the filtering logic behind exotica hotline
+\item Make the hotline code work
+\item Make a list of people to bug
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Read exotica hotline code and list the physics signatures it is catching.
+\item Checked the event cleaning in exotica hotline.
+\end{enumerate}
+
+\DailySection{Reading exotica hotline code}
+
+\DailySubSection{``Physics signature'' in exotica hotline}
+
+Paths available in the \texttt{hotlineSkim\_AllFilters\_cfg.py}.
+All paths are \texttt{basicFilters(NoPV) + ak5CaloJetsL2L3 + HBHENoiseFilter} and then
+the target filter.
+
+\begin{enumerate}
+\item High Ht (\texttt{NoPV}).  \texttt{HtJetThreshold} = 30, \texttt{HtMin} = 700
+\item High Met.  \texttt{PFMetMin} = 300
+\item High Pt Electron.  \texttt{gsfElectron}, PT Min = 100
+\item High Pt Photon.  150 GeV, \texttt{photons} collection
+\item High Pt Jet.  350 GeV.  \texttt{ak5CaloJet}.
+\item High Pt Muon.  80 GeV.  Standard muon collection.
+\item Multi Track (\texttt{NoPV}).  600 tracks.  \texttt{generalTracks} collection
+\item Multi Muon.  Two muons above 45 GeV.
+\item Multi Electron (\texttt{NoPV}).  Two electrons above 45 GeV.
+\item Multi Jet (\texttt{NoPV}).  Five jets above 50 GeV.
+\item Multi Photon (\texttt{NoPV}).  Three photons above 30 GeV.
+\item Top Electron (\texttt{NoPV}).  b-jet PT min 50 GeV, b-jet discriminator 1.7, one b-jet.
+\texttt{HtJetThreshold} 30, \texttt{HtMin} 150.  At least one electrons above 80 GeV.
+\item Top Muon (\texttt{NoPV}).  Same as the previous path.
+\item Top Hadron (\texttt{NoPV}).  b-jet requirement same as before.  \texttt{HtMin} become 200.
+\end{enumerate}
+
+\DailySubSection{Event cleaning in exotica hotline}
+
+\begin{enumerate}
+\item Basic filters (with/without PV).
+   \begin{enumerate}
+   \item Primary vertex.  n.d.o.f. at least 4, max z deviation 25, max d0 deviation 2.
+      \texttt{offlinePrimaryVertices} collection
+   \item Physics declared.
+   \item Scraping.  10 tracks above 0.2.
+   \end{enumerate}
+\item \texttt{ak5CaloJetL2L3}.  \texttt{JetMETCorrections.Configuration.DefaultJEC\_cff}.
+\item \texttt{HBHENoiseFilter}.  Same as the one in \texttt{CommonTools.RecoAlgos.HBHENoiseFilter\_cfi}
+except that the \texttt{EMF} requirement is added.  The version in \texttt{CMSSW\_3\_8\_2} is confirmed
+to be the same as the ICHEP one.
+\end{enumerate}
+
+\DailySection{Reflection}
+
+Orz.  Not much done today....  Sunday isn't really productive.
+
+The ecal spike cleaning seems to be turned on by default before the hotline.  Maybe we want to somehow read from
+the uncleaned version of it, and coincide spike signature with physics signature.  But for the time being I'll reverse
+the Hcal filter only.
+
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Make the hotline work!
+\item Ecal spikes vs. hotline?
+\item Read EXO-10-002-001 and compile a list of comments.
+\item Bug Artur for DQM code
+\item Bug Maurizio/Matthias for fitting strategy
+\end{enumerate}
+
+
