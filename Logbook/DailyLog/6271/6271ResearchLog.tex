@@ -1,0 +1,119 @@
+\DailyTitle{6271 Log (October 4, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Make the hotline work!
+\item Ecal spikes vs. hotline?
+\item Read EXO-10-002-001 and compile a list of comments.
+\item Bug Artur for DQM code
+\item Bug Maurizio/Matthias for fitting strategy
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item First attempt at running exotica hotline code.  Local running is fine.  For CAF access or to run cronjobs, I'll have to wait a bit.
+\item Quickly read through EXO-10-002 and made a small list of comments.
+\item Got the Hcal DQM instructions from Artur.
+\item Start getting a signal shape sample.
+\end{enumerate}
+
+\DailySection{Making exotica hotline run as is}
+
+Following instructions on the twiki \url{https://twiki.cern.ch/twiki/bin/viewauth/CMS/ExoticaHotline}.
+
+\begin{enumerate}
+\item First step is to run it locally and see if it works.
+\begin{verbatim}
+scramv1 project CMSSW CMSSW_3_8_2
+cd CMSSW_3_8_2/src
+cvs co -r V00-02-02 -d HotlineSkimCode/RecoSkim \\
+   UserCode/ExoticaHotLine/src/HotlineSkimCode/RecoSkim
+scramv1 build
+cd HotlineSkimCode/RecoSkim/test
+eval `scramv1 runtime -sh`
+cmsRun hotlineSkim_AllFilters_cfg.py
+\end{verbatim}
+\item Successfully built.  \texttt{hotlineTopHadron\_cfi.py} is missing!  Copy from the checked out version from last week.
+This example file read SUSY LM1 relval samples.
+Now it seems to be working after copying the configuration file fragment.
+\item Disk quota exceeded.  :(  Change to output to tmp directory.
+\item Done.  The output is a edm format file with some events in it.  Meow.   \texttt{cmsShow} is cool.
+\item Next thing to try is to setup cron job.
+\begin{verbatim}
+cd /afs/cern.ch/user/t/tulika/scratch2/ExoticaHotLine/cronJob
+python exoHotLineCron.py Run2010B ExpressPhysics \\
+   /afs/cern.ch/user/t/tulika/scratch2/ExoticaHotLine/CMSSW_3_8_2/src 
+\end{verbatim}
+\item Permission denied!!!  Oops.
+\item Maria is asking Luca Malgeri for permissions on CAF.
+\end{enumerate}
+
+\DailySection{Reading of CMS paper draft EXO-10-002-001}
+
+Information on the version read:
+\begin{verbatim}
+2010/09/21
+Head Id: 17377
+Archive Id: 17381
+Archive Date: 2010/09/20
+Archive Tag: trunk
+\end{verbatim}
+
+Overall it is a good paper, though it will be good to elaborate a bit on details.
+Whether to add more detail to paper is another thing, but I would like to know how the analysis is done.
+Main questions/comments below:
+
+\begin{enumerate}
+\item Line 26.  Why choose positive sign?
+\item Line 54.  Cone size of 0.7 is huge, especially since the eta range is only 1.4 units or so for each region.
+Is there any particular reason smaller cone sizes are not used?
+\item Line 80-83.  Elaborate a bit more on this?  The reference didn't say much either.
+\item Line 92.  How is the 20\% determined?
+\item Figure 1.  The choice of division points for mass is perplexing....
+\item Figure 1.  How much systematics is expected on pythia prediction?  Is it okay to plot the band too?
+\item Line 100.  What is $\rho_j$ exactly?
+\item Line 108-109.  Is the overall shift in units of ratio?  Could the choice of constant shift be justified?
+\item Line 129-134.  Where does the 10x amplification come from?
+\end{enumerate}
+
+Cosmetics left for other people to pick.  I'm not good at English.
+
+\DailySection{Hcal noise classification}
+
+\begin{enumerate}
+\item The most important thing is to get a sample of signal pulse shape, and also noises from a couple other runs.  Let me do that now.
+\item Copied code from \texttt{Work} to \texttt{Workspace} on \texttt{lxplus}.  The code is in \\
+\texttt{lxplus:scratch0/Workspace/HcalNoise/ExamplePulseShapes/6271}.  Batch submitted for signal pulses.
+Input: DigiTree, Output: QM histograms and PulseShape tree.
+\item The run time for individual job is about 20 minutes, as estimated by the test run.
+\item Encountered ``No space left on device'' error.  Since the files are too large (more than 2 GB), so I copied them to local tmp folder before running....Orz....
+\item For now, let's leave it there and see how bad it is.  All I need is some samples of pulses.
+\item No.  Change it back to rfio access.  At least I will have some useful pulses this way.
+\item Cloned a copy of the analyzer code to \\
+\texttt{pccit28:Workspace/HcalNoise/PulseShapeVariableBrainStorm/6271}.
+\item There are repeating entries due to castor error.  After 2GB is reached, trees won't be read and the content of the branches appear repeating.
+\item For now make a comparison of ADC to previous entry, and if it is the same, drop the event.
+\end{enumerate}
+
+\DailySection{Checking status of the ZJets candle note}
+
+\begin{enumerate}
+\item First I need to find the svn repository....can't find it.
+\item Maybe it's easier to bug people for it.
+\end{enumerate}
+
+\DailySection{Reflection}
+
+Start from the afternoon, I was getting dizzy and lowered the work efficiency.  How can I improve this?
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Install DQM from Artur
+\item Fit!
+\item Finish up Hcal signal sample shape
+\end{enumerate}
+
+
