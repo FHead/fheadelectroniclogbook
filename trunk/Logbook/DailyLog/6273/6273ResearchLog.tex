@@ -1,0 +1,71 @@
+\DailyTitle{6273 Log (October 6, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Read and understand the double spike algorithm
+\item Make sure if anyone is doing the vecbos PDMu dataset
+\item Make a set of loose cuts to remove obvious noise, and skim through pulse shapes of the rest
+\item Port the HCAL ideal pulse shape (as in \texttt{CMSSW}) to \texttt{RooFit}
+\item Vecbos fitting strategy?
+\item To-do chart for ZJets candle note for fast execution once target data ($\sim 50 pb^{-1}$) arrives
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Made a checklist and sent to Maurizio for comment
+\end{enumerate}
+
+\DailySection{Vecbos to-do chart}
+
+\begin{enumerate}
+\item Data, numbers after each cut.  (Ready)
+\item Data, tight isolation to get alphaL.  (Ready)
+\item Data, simultaneous fit to get the right error on signal inclusive
+yields without enforcing linear constraint.  (Ready)
+\item Data, fit with the linear constraint.  To be compared with the one
+without enforcing constraint.  (Coming soon)
+\item Data, get the ratio plot from the result of the fit.  (Need the
+script to take the fit output and make the final plot)
+\item Data, repeat the fit 4 times for JEC uncertainty.  (Not yet
+done...coming soon)
+\item Data, anti-isolation selection.  (Ready)
+\item Data, splot to get Z PT, leading-jet PT spectrum, etc. (???)
+\item MC, numbers after each cut, as well as numbers in each jet bin.  (Ready)
+\item MC, demonstration that the isolation does not have a large impact on
+alphaL.  (Ready)
+\item MC, anti-muon selection \& QCD normal selection.  (Ready...though QCD
+sample is small)
+\item MC, justify that an isolation is needed with PF stuff.  (Ready)
+\item MC, $Z \rightarrow \mu\mu$ PT shape vs. $Z \rightarrow \nu\nu$ MET shape comparison.  (Not yet done)
+\item MC, efficiencies in different jet bin.  (Not ready)
+\item Toy MC, on the functional form itself.  Generate sample with
+cruijff, fit to check the spread.  (OK, repeatable within a day)
+\item Toy MC, if the parameters are off, how much bias will there be.
+Show that only alphaL matters.  (OK, repeatable within a day)
+\item Show that the error we get from the simultaneous fit is reasonable (???)
+\item Efficiency of the trigger (???)
+\end{enumerate}
+
+Reply from him:
+
+\begin{enumerate}
+\item There is a tool to calculate splots in \texttt{RooStat}
+\item Not much to be done in trigger efficiency
+\end{enumerate}
+
+\DailySection{Reflection}
+
+An extremely slow day....
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Read and understand the double spike algorithm
+\item Make sure if anyone is doing the vecbos PDMu dataset
+\item Make a set of loose cuts to remove obvious noise, and skim through pulse shapes of the rest
+\item Port the HCAL ideal pulse shape (as in \texttt{CMSSW}) to \texttt{RooFit}
+\end{enumerate}
+
+
