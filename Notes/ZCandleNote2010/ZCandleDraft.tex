@@ -24,7 +24,7 @@
 \author{Yi Chen\\
    California institute of technology\\
    \texttt{chen.yi.first@gmail.com}}
-\title{50 $pb^{-1}$ Z Candle Note Draft\\ --- applied to 2.66 $pb^{-1}$ of data}
+\title{2.66 $pb^{-1}$ Z Candle Note Draft (pieces)}
 \date{\today}
 \maketitle
 
@@ -61,7 +61,7 @@ Data samples included in this note are listed in table \ref{Table_DataSamples}.
    \begin{tabular}{|c|c|c|c|c|c|}
    \hline
    Run range & dataset & integrated luminosity \\\hline
-   132440-191053 & /Run2010/GodDataSetForMuon & 1.06 $fb^{-1}$ \\\hline
+   132440-191053 & /Run2010/GodDataSetForMuon & 1.069 $ab^{-1}$ \\\hline
    \end{tabular}
 \end{table}
 
@@ -137,15 +137,26 @@ that the two muons are at least 0.01 units apart in $\Delta R \equiv \sqrt{\Delt
 
 \section{MC sample efficiencies}
 
-The efficiency of each step in the selection for MC samples are shown in table \ref{}
+The efficiency of each step in the selection for MC samples are shown in table \ref{Table_MCSelectionEfficiency}.
+In table \ref{Table_MCJetWiseSelectionEfficiencyCaloJet} we show the selection efficiency for different calorimetric jet counts.
 
-\begin{table}[h]
+\begin{table}
    \caption{Efficiency table for MC samples}
    \centering
    \begin{tabular}{|c|c|c|c|c|}
       \hline
       A & V & D & W & H \\\hline
    \end{tabular}
+   \label{Table_MCSelectionEfficiency}
+\end{table}
+
+\begin{table}
+   \caption{Bin-by-bin selection efficiency, calojet}
+   \centering
+   \begin{tabular}{|c|c|c|}
+      \hline
+   \end{tabular}
+   \label{Table_MCJetWiseSelectionEfficiencyCaloJet}
 \end{table}
 
 \section{Signal extraction (fit strategy)}
@@ -192,7 +203,62 @@ as a function of jet multiplicity.
 
 \section{Fit result on data}
 
-The fit strategy described above is applied to data.
+The fit strategy described above is applied to data.  Fixed parameter $\alpha_L$ for each jet flavor is extracted separately, and the result is listed in table \ref{Table_DataAlphaL}.
+After fitting, the extracted yields are shown in table \ref{Table_DataExtractedYields}, while the $N/(N+1)$ jet ratio is summarized in figures \ref{Figure_RatioFromDataCaloJet},
+\ref{Figure_RatioFromDataUncorrectedCaloJet}, \ref{Figure_RatioFromDataPFJet} and \ref{Figure_RatioFromDataTrackJet}.
+
+\begin{table}
+   \caption{Shape parameters for different jet flavors fitting to data with tight isolation cut}
+   \centering
+   \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
+      $m$ & 90.9 & 91.2 & 90.4 & 16.45 \\\hline
+      $\alpha_L$ & 1 & 2 & 3 & 4 \\\hline
+      $\alpha_R$ & 1 & 2 & 3 & 4 \\\hline
+      $\sigma_L$ & 1 & 2 & 3 & 4 \\\hline
+      $\sigma_R$ & 1 & 2 & 3 & 4 \\\hline
+   \end{tabular}
+   \label{Table_DataAlphaL}
+\end{table}
+
+\begin{table}
+   \caption{Data extracted yields}
+   \centering
+   \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
+      $N \ge 1$ & 100 & 90 & 80 & 70 \\\hline
+      $N \ge 2$ & 100 & 90 & 80 & 70 \\\hline
+      $N \ge 3$ & 100 & 90 & 80 & 70 \\\hline
+      $N \ge 4$ & 100 & 90 & 80 & 70 \\\hline
+   \end{tabular}
+   \label{Table_DataExtractedYields}
+\end{table}
+
+\begin{figure}
+   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
+   \label{Figure_RatioFromDataCaloJet}
+\end{figure}
+
+\begin{figure}
+   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
+   \label{Figure_RatioFromDataPFJet}
+\end{figure}
+
+\begin{figure}
+   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
+   \label{Figure_RatioFromDataTrackJet}
+\end{figure}
+
+\begin{figure}
+   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
+   \label{Figure_RatioFromDataUncorrectedCaloJet}
+\end{figure}
 
 
 \section{Toy studies: shape, parameters}
