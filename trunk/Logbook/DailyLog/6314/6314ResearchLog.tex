@@ -1,0 +1,47 @@
+\DailyTitle{6314 Log (October 14, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Keep writing down Z candle note fragments
+\item Meet with Maria to learn more about W fit
+\item Start leptoquark jobs
+\item Move the toy fit code to the computer and start rerunning
+\item Resubmit the failed jobs
+\item Keep reading Hcal DQM code
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Yay
+\end{enumerate}
+
+\DailySection{DQM code!}
+
+An analyzer (\texttt{HcalMonitorModule}) keeps filling histograms and keeping them in memory.
+The histograms (embedded in \texttt{MonitorElement}) are ``booked'' through \texttt{DQMStore} service and the ownership of the histogram memory is the service....whatever it is.
+There are a list of ``clients'' that correspond to subfolders....and same story with the \texttt{DQMStore} and histogram booking.
+The entrance module for the clients is \texttt{HcalMonitorClient}.  To make sure that I know what's going on,
+let me introduce a new subfolder called ``HcalFHeadMonitor'' where I can put my own histograms.
+Good.  Successfully installed the new subfolder.  See figure \ref{6314_InstalledFHeadMonitorScreenShot}.
+Try to add a histogram.  It showed up wouldn't fill at all.  Let's play with it tomorrow.
+
+\begin{figure}
+\includegraphics[width=120mm]{DailyLog/6314/6314HcalFHeadMonitor.png}
+\caption{Successfully installed FHead subfolder in Hcal DQM test bench}
+\label{6314_InstalledFHeadMonitorScreenShot}
+\end{figure}
+
+
+\DailySection{Reflection}
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Eat lunch
+\item Eat dinner
+\item Find the red herring
+\end{enumerate}
+
+

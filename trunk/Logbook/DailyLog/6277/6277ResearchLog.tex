@@ -1,0 +1,53 @@
+\DailyTitle{6267 Log (October 10, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Submit vecbos jobs!
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Submitted vecbos jobs - with a lot of resubmit....
+\end{enumerate}
+
+\DailySection{Vecbos ntuple dumper job submission}
+
+From the checkout in \texttt{CMSSW\_3\_8\_2}, the template did not work out of the box.  I had to add in btagging-related configuration files and sequences
+
+\begin{verbatim}
+process.load("HiggsAnalysis.HiggsToWW2e.btagProducerSequence_cff")
+process.load("HiggsAnalysis.HiggsToWW2e.btagPFJetsProducerSequence_cff")
+process.load("HiggsAnalysis.HiggsToWW2e.btagJPTJetsProducerSequence_cff")
+...
+   process.newBtaggingSequence *
+   process.newPFJetBtaggingSequence *
+   process.newJPTJetBtaggingSequence *
+...
+\end{verbatim}
+
+to make it work.  Also I have to go into \texttt{HiggsAnalysis.HiggsToWW2e.jetProducerSequence\_cff} and remove the line
+which includes \texttt{JetMETCorrections.Configuration.JetCorrectionCondDB\_cff}.  There is also
+a problem on castor.  One needs to change permission to 775 to be able to stage out to the directory:
+
+\begin{verbatim}
+rfchmod 775 /castor/cern.ch/user/....
+\end{verbatim}
+
+Now it seems to be working.....Hopefully nothing else go wrong.
+
+\DailySection{Reflection}
+
+Playing with crab/castor is really a waste of time.....
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Submit vecbos ntuple jobs
+\item Make a to-write list for Z candle
+\item Do one round of subtraction and look at remaining noise
+\item Try out Hcal DQM GUI on lxplus
+\end{enumerate}
+
+
