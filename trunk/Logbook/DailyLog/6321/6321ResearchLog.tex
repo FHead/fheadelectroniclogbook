@@ -16,6 +16,8 @@
 \item Looked at the correlations between test variables
 \item Fixed a fatal error in the two-level fit.  Now the chi2 is always positive, and the result look a lot more like the linear fit
 \item Made a preliminary version of the presentation.
+\item Finished implementation of the FHead task module in private Hcal test bench.  The histogram fills!!!
+\item Added parabolic fit into the brainstorm reservoir.
 \end{enumerate}
 
 \DailySection{Note on progress during Sunday}
@@ -118,6 +120,42 @@ The scatter plot of (test statistics of) RMS8/Max vs. RMS9/Max (figures \ref{Fig
 \label{Figure_6321HTestStatisticsRMS8OverMaxVsRMS9OverMax100}
 \end{figure}
 
+\DailySection{Parabolic fit}
+
+The parabolic fit seems to be only a bit better than linear fit.
+I recall seeing a lot of small-hill-like shapes: rise up slowly for a few time slices, and then fall back down.
+The fact that the improvement is not drastic means that the humps are still pretty efficiently picked out by the linear hypothesis.
+The chi2 can be seen in figure \ref{Figure_6321HParabolaChi2VsTotalCharge},
+test statistics in figure \ref{Figure_6321HTestStatisticsParabolaVsTotalCharge}
+and the correlation between parabolic fit and linear fit is shown in figure \ref{Figure_6321HTestStatisticsLinearVsParabola}
+and \ref{Figure_6321HTestStatisticsLinearVsParabola100}.
+
+\begin{figure}
+\includegraphics[width=120mm]{DailyLog/6321/6321HParabolaChi2VsTotalCharge.pdf}
+\caption{Chi2 of parabolic fit.  Left: signal, right: noise}
+\label{Figure_6321HParabolaChi2VsTotalCharge}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=120mm]{DailyLog/6321/6321HTestStatisticsParabolaVsTotalCharge.pdf}
+\caption{Test statistics of parabolic fit.  Left: signal, right: noise}
+\label{Figure_6321HTestStatisticsParabolaVsTotalCharge}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=120mm]{DailyLog/6321/6321HTestStatisticsLinearVsParabola.pdf}
+\caption{Test statistics of parabolic fit and linear fit.  Left: signal, right: noise}
+\label{Figure_6321HTestStatisticsLinearVsParabola}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=120mm]{DailyLog/6321/6321HTestStatisticsLinearVsParabola100.pdf}
+\caption{Test statistics of parabolic fit and linear fit, charge \textgreater 100.  Left: signal, right: noise}
+\label{Figure_6321HTestStatisticsLinearVsParabola100}
+\end{figure}
+
+
+
 \DailySection{Vecbos candle data exercise}
 
 Start at 12:34 computer time.  Goal is to produce all plots/tables used in the notes that are related to data as soon as possible.
@@ -140,24 +178,36 @@ It takes about 20 minutes to submit all jobs, so....the total turnaround time on
 Copying takes a while though...  15:18.  Finished copying.
 
 The fits to MC signal sample takes a lot of time.  Don't redo it again when data come.
-Todo item #1: make a script to output the fit result tables directly.  For now let me proceed.
-Signal inclusive fits finish in a flash.  Todo item #2: make a script to output the fit result lables.
-The JES fits are also really fast.  Todo item #3: ditto.
-Todo item #4: setup script to produce the ratio.
+Todo item \#1: make a script to output the fit result tables directly.  For now let me proceed.
+Signal inclusive fits finish in a flash.  Todo item \#2: make a script to output the fit result lables.
+The JES fits are also really fast.  Todo item \#3: ditto.
+Todo item \#4: setup script to produce the ratio.
 
 Uhm....all the scripts run fine....
 So I only need to write scripts to generate tables in latex format and I'm done with data part of the note (also to get the ratio).
 Tomorrow let me do a MC rush to generate all MC plots/tables.
 
 
+\DailySection{Hcal DQM progress}
+
+Finished implementing the Hcal DQM task analyzer.  Also changed a bit in the configuration file to make it run....now it fills plots!
+A dummy histogram is now in.
+
+
 \DailySection{Reflection}
+
+Not enough time!  But things are finally moving.
+
+
 
 \DailySection{Goals for next work day}
 
 \begin{enumerate}
-\item Eat lunch
-\item Eat dinner
-\item Find the red herring
+\item Z candle MC rush
+\item Finish up vecbos jobs
+\item Include Shuichi's code into the Hcal DQM test bench
+\item Include double-chi2 variables into the Hcal DQM test bench
+\item Finish up Hcal noise presentation
 \end{enumerate}
 
 
