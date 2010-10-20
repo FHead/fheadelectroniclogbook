@@ -114,19 +114,19 @@ Therefore, a isolation cut is selected as 30\% of relative combined isolation wi
 efficiency drop for one-jet case, consistent with expectations, as shown in figure \ref{Figure_IsolationCutVsRejectionPercentage}.
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{HPFJetClosestToFirstLegDEtaDPhi.pdf}
 \caption{Candidate muon vs. closest jet, deta dphi plot (MC signal)}
 \label{Figure_CandidateMuonVsClosestJetEtaPhi}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{HPFJetClosestToFirstLegPTPT.pdf}
 \caption{Muon PT vs. closest jet PT (MC signal)}
 \label{Figure_CandidateMuonVsClosestJetPT}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{DoubleLeg_WithQCD_1PFJet.pdf}
 \caption{Isolation cut vs. percentage that was cut out in MC signal events}
 \label{Figure_IsolationCutVsRejectionPercentage}
 \end{figure}
@@ -140,24 +140,123 @@ that the two muons are at least 0.01 units apart in $\Delta R \equiv \sqrt{\Delt
 The efficiency of each step in the selection for MC samples are shown in table \ref{Table_MCSelectionEfficiency}.
 In table \ref{Table_MCJetWiseSelectionEfficiencyCaloJet} we show the selection efficiency for different calorimetric jet counts.
 
-\begin{table}
-   \caption{Efficiency table for MC samples}
-   \centering
-   \begin{tabular}{|c|c|c|c|c|}
-      \hline
-      A & V & D & W & H \\\hline
+\begin{table}[htdp]
+ \caption{Selection efficiency for signal and background for each
+    applied requirement. The values quoted are computed with respect
+    to the previously-applied selection.\label{tab:effSel}}
+ \centering
+ \begin{tabular}{|c|c|c|c|c|}
+   \hline
+   \verb|Sample| & $Z+jets$ & $W+jets$ & $t \bar t+jets$ & $QCD$ \\
+   \hline
+   \verb|Two Muons|          & $ 57.78 \pm 0.16 $ & $ 4.38 \pm 0.01 $ & $ 30.53 \pm 0.06 $ & $ 57.84 \pm 0.09 $ \\
+   \verb|Two Global Muons|   & $ 89.65 \pm 0.29 $ & $ 7.28 \pm 0.04 $ & $ 40.78 \pm 0.12 $ & $ 58.75 \pm 0.13 $ \\
+   \verb|Pixel Hits|         & $ 99.45 \pm 0.33 $ & $ 92.99 \pm 0.76 $ & $ 97.46 \pm 0.35 $ & $ 95.63 \pm 0.23 $ \\
+   \verb|Tracking Hits|      & $ 99.95 \pm 0.34 $ & $ 97.22 \pm 0.81$ & $ 98.94 \pm 0.36 $ & $ 99.11 \pm 0.24 $ \\
+   \verb|Valid Muon Hits|    & $ 97.40 \pm 0.33 $ & $ 67.90 \pm 0.64 $ & $ 86.60 \pm 0.32 $ & $ 78.34 \pm 0.21 $ \\
+   \verb|Muon |$\chi^2$      & $ 99.00 \pm 0.34 $ & $ 92.39 \pm 0.96 $ & $ 95.99 \pm 0.38 $ & $ 97.47 \pm 0.27 $ \\
+   \verb|Isolation |         & $ 96.94 \pm 0.33 $ & $ 25.90 \pm 0.43$ & $ 14.49 \pm 0.11 $ & $ 28.56 \pm 0.12 $ \\
+   $p_T$ \verb|and| $|\eta|$ & $ 91.67 \pm 0.33 $ & $ 0.55 \pm 0.11 $ & $ 32.99 \pm 0.49 $ & $ 0.00 \pm nan $ \\
+   \hline
+   \verb|Total|              & $ 44.12 \pm 0.14 $ & $ 0.00 \pm 0.00 $ & $ 0.48 \pm 0.01 $ & $ 0.00 \pm nan $ \\
+   \hline
    \end{tabular}
-   \label{Table_MCSelectionEfficiency}
+\label{table}
 \end{table}
 
-\begin{table}
-   \caption{Bin-by-bin selection efficiency, calojet}
-   \centering
-   \begin{tabular}{|c|c|c|}
-      \hline
-   \end{tabular}
-   \label{Table_MCJetWiseSelectionEfficiencyCaloJet}
+\begin{table}[htdp]
+   \caption{Expected number of events in (2.66 pb$^{-1}$ for signal and background Monte Carlo samples.\label{tab:effSel}}
+       \centering
+       \begin{tabular}{|c|c|c|c|c|}
+       \hline
+       \verb|Jet Counting| & $Z+jets$ & $W+jets$ & $t \bar t+jets$ & $QCD$ \\
+       \hline
+       \multicolumn{5}{|c|}{PFJets} \\
+       \hline
+       $N(\geq 0~jets)$       & $ 938.78 \pm 30.64 $ & $ 0.16 \pm 0.41 $ & $ 1.21 \pm 1.10 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 1~jets)$       & $ 140.18 \pm 11.84 $ & $ 0.03 \pm 0.18 $ & $ 1.18 \pm 1.09 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 2~jets)$       & $ 25.05 \pm 5.00 $ & $ 0.01 \pm 0.11 $ & $ 0.95 \pm 0.98 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 3~jets)$       & $ 4.54 \pm 2.13 $ & $ 0.01 \pm 0.11 $ & $ 0.41 \pm 0.64 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 4~jets)$       & $ 0.90 \pm 0.95 $ & $ 0.00 \pm 0.00 $ & $ 0.13 \pm 0.36 $ & $ 0.00 \pm 0.00 $ \\
+       \hline
+       \multicolumn{5}{|c|}{TrackJets} \\
+       \hline
+       $N(\geq 0~jets)$       & $ 938.78 \pm 30.64 $ & $ 0.16 \pm 0.41 $ & $ 1.21 \pm 1.10 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 1~jets)$       & $ 99.29 \pm 9.96 $ & $ 0.03 \pm 0.18 $ & $ 1.08 \pm 1.04 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 2~jets)$       & $ 13.90 \pm 3.73 $ & $ 0.01 \pm 0.11 $ & $ 0.67 \pm 0.82 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 3~jets)$       & $ 2.24 \pm 1.50 $ & $ 0.00 \pm 0.00 $ & $ 0.22 \pm 0.47 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 4~jets)$       & $ 0.35 \pm 0.59 $ & $ 0.00 \pm 0.00 $ & $ 0.06 \pm 0.24 $ & $ 0.00 \pm 0.00 $ \\
+       \hline
+       \multicolumn{5}{|c|}{CaloJets} \\
+       \hline
+       $N(\geq 0~jets)$       & $ 938.78 \pm 30.64 $ & $ 0.16 \pm 0.41 $ & $ 1.21 \pm 1.10 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 1~jets)$       & $ 211.96 \pm 14.56 $ & $ 0.07 \pm 0.26 $ & $ 1.19 \pm 1.09 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 2~jets)$       & $ 43.27 \pm 6.58 $ & $ 0.03 \pm 0.16 $ & $ 1.02 \pm 1.01 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 3~jets)$       & $ 8.63 \pm 2.94 $ & $ 0.01 \pm 0.11 $ & $ 0.52 \pm 0.72 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 4~jets)$       & $ 1.81 \pm 1.35 $ & $ 0.00 \pm 0.00 $ & $ 0.21 \pm 0.46 $ & $ 0.00 \pm 0.00 $ \\
+       \hline
+       \multicolumn{5}{|c|}{UncorrectedCaloJets} \\
+       \hline
+       $N(\geq 0~jets)$       & $ 938.78 \pm 30.64 $ & $ 0.16 \pm 0.41 $ & $ 1.21 \pm 1.10 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 1~jets)$       & $ 114.41 \pm 10.70 $ & $ 0.05 \pm 0.21 $ & $ 1.15 \pm 1.07 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 2~jets)$       & $ 17.73 \pm 4.21 $ & $ 0.01 \pm 0.08 $ & $ 0.81 \pm 0.90 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 3~jets)$       & $ 2.99 \pm 1.73 $ & $ 0.01 \pm 0.08 $ & $ 0.30 \pm 0.55 $ & $ 0.00 \pm 0.00 $ \\
+       $N(\geq 4~jets)$       & $ 0.59 \pm 0.77 $ & $ 0.00 \pm 0.00 $ & $ 0.08 \pm 0.29 $ & $ 0.00 \pm 0.00 $ \\
+       \hline
+       \end{tabular}
+\label{table}
 \end{table}
+
+
+\begin{table}[htdp]
+ \caption{Selection efficiency for signal in different calo jet bin for each
+    applied requirement. The values quoted are computed with respect
+    to the previously-applied selection.}
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|}
+   \hline
+   \verb|Jet count| & $\ge 0 jets$ & $\ge 1 jet$ & $\ge 2 jets$ & $\ge 3 jets$ & $\ge 4 jets$ \\
+   \hline
+   \verb|Two Muons|          & $ 57.78 \pm 0.16 $ & $ 69.94 \pm 0.41 $ & $ 75.71 \pm 0.98 $ & $ 79.17 \pm 2.29 $ & $ 80.14 \pm 4.99 $ \\
+   \verb|Two Global Muons|   & $ 89.65 \pm 0.29 $ & $ 89.98 \pm 0.59 $ & $ 89.59 \pm 1.27 $ & $ 89.95 \pm 2.83 $ & $ 88.36 \pm 5.99 $ \\
+   \verb|Pixel Hits|         & $ 99.45 \pm 0.33 $ & $ 99.38 \pm 0.67 $ & $ 99.43 \pm 1.45 $ & $ 99.38 \pm 3.21 $ & $ 99.27 \pm 6.95 $ \\
+   \verb|Tracking Hits|      & $ 99.95 \pm 0.34 $ & $ 99.95 \pm 0.67$ & $ 99.93 \pm 1.46 $ & $ 99.84 \pm 3.23 $ & $ 100.00 \pm 7.01 $ \\
+   \verb|Valid Muon Hits|    & $ 97.40 \pm 0.33 $ & $ 97.05 \pm 0.66 $ & $ 97.06 \pm 1.43 $ & $ 97.17 \pm 3.17 $ & $ 95.82 \pm 6.79 $ \\
+   \verb|Muon |$\chi^2$      & $ 99.00 \pm 0.34 $ & $ 98.77 \pm 0.68 $ & $ 98.66 \pm 1.47 $ & $ 98.38 \pm 3.24 $ & $ 98.46 \pm 7.08 $ \\
+   \verb|Isolation |         & $ 96.94 \pm 0.33 $ & $ 90.77 \pm 0.64$ & $ 88.05 \pm 1.36 $ & $ 85.16 \pm 2.94 $ & $ 84.38 \pm 6.36 $ \\
+   $p_T$ \verb|and| $|\eta|$ & $ 91.67 \pm 0.33 $ & $ 89.06 \pm 0.66 $ & $ 88.56 \pm 1.45 $ & $ 89.90 \pm 3.31 $ & $ 90.43 \pm 7.29 $ \\
+   \hline
+   \verb|Total|              & $ 44.12 \pm 0.14 $ & $ 48.44 \pm 0.32 $ & $ 50.32 \pm 0.74 $ & $ 51.72 \pm 1.70 $ & $ 50.60 \pm 3.63 $ \\
+   \hline
+   \end{tabular}
+\label{table}
+\end{table}
+
+
+\begin{table}[htdp]
+ \caption{Selection efficiency for signal in different uncorrected calo jet bin for each
+    applied requirement. The values quoted are computed with respect
+    to the previously-applied selection.}
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|}
+   \hline
+   \verb|Jet count| & $\ge 0 jets$ & $\ge 1 jet$ & $\ge 2 jets$ & $\ge 3 jets$ & $\ge 4 jets$ \\
+   \hline
+   \verb|Two Muons|          & $ 57.78 \pm 0.16 $ & $ 71.88 \pm 0.57 $ & $ 77.08 \pm 1.55 $ & $ 80.94 \pm 4.09 $ & $ 81.76 \pm 9.35 $ \\
+   \verb|Two Global Muons|   & $ 89.65 \pm 0.29 $ & $ 89.93 \pm 0.78 $ & $ 89.42 \pm 1.97 $ & $ 89.42 \pm 4.89 $ & $ 89.21 \pm 11.02 $ \\
+   \verb|Pixel Hits|         & $ 99.45 \pm 0.33 $ & $ 99.38 \pm 0.89 $ & $ 99.36 \pm 2.25 $ & $ 99.37 \pm 5.59 $ & $ 100.00 \pm 12.70 $ \\
+   \verb|Tracking Hits|      & $ 99.95 \pm 0.34 $ & $ 99.96 \pm 0.90$ & $ 99.90 \pm 2.27 $ & $ 99.84 \pm 5.63 $ & $ 100.00 \pm 12.70 $ \\
+   \verb|Valid Muon Hits|    & $ 97.40 \pm 0.33 $ & $ 96.77 \pm 0.88 $ & $ 97.01 \pm 2.22 $ & $ 97.46 \pm 5.53 $ & $ 96.77 \pm 12.39 $ \\
+   \verb|Muon |$\chi^2$      & $ 99.00 \pm 0.34 $ & $ 98.59 \pm 0.90 $ & $ 98.57 \pm 2.28 $ & $ 99.02 \pm 5.67 $ & $ 100.00 \pm 12.91 $ \\
+   \verb|Isolation |         & $ 96.94 \pm 0.33 $ & $ 89.80 \pm 0.85$ & $ 87.11 \pm 2.09 $ & $ 86.66 \pm 5.16 $ & $ 86.67 \pm 11.61 $ \\
+   $p_T$ \verb|and| $|\eta|$ & $ 91.67 \pm 0.33 $ & $ 87.02 \pm 0.87 $ & $ 88.69 \pm 2.27 $ & $ 92.21 \pm 5.80 $ & $ 91.35 \pm 12.96 $ \\
+   \hline
+   \verb|Total|              & $ 44.12 \pm 0.14 $ & $ 47.87 \pm 0.43 $ & $ 50.55 \pm 1.16 $ & $ 55.37 \pm 3.13 $ & $ 55.88 \pm 7.16 $ \\
+   \hline
+   \end{tabular}
+\label{table}
+\end{table}
+
 
 \section{Signal extraction (fit strategy)}
 
@@ -196,8 +295,8 @@ Therefore we can apply a very tight isolation cut to remove all backgrounds and 
 as a function of jet multiplicity.
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
-\caption{Isolation cut vs. percentage that was cut out in MC signal events}
+\includegraphics[width=110mm]{AlphaLVsIsolation_ReasonableIsolation.pdf}
+\caption{Signal shape vs. isolation}
 \label{Figure_SignalShapeVsIsolation}
 \end{figure}
 
@@ -208,56 +307,56 @@ After fitting, the extracted yields are shown in table \ref{Table_DataExtractedY
 \ref{Figure_RatioFromDataUncorrectedCaloJet}, \ref{Figure_RatioFromDataPFJet} and \ref{Figure_RatioFromDataTrackJet}.
 
 \begin{table}
-   \caption{Shape parameters for different jet flavors fitting to data with tight isolation cut}
-   \centering
-   \begin{tabular}{|c|c|c|c|c|c|}
+\caption{Shape parameters for different jet flavors fitting to data with tight isolation cut}
+\centering
+   \begin{tabular}{|c|c|c|c|c|}
       \hline
-       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
-      $m$ & 90.9 & 91.2 & 90.4 & 16.45 \\\hline
-      $\alpha_L$ & 1 & 2 & 3 & 4 \\\hline
-      $\alpha_R$ & 1 & 2 & 3 & 4 \\\hline
-      $\sigma_L$ & 1 & 2 & 3 & 4 \\\hline
-      $\sigma_R$ & 1 & 2 & 3 & 4 \\\hline
+      & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
+      $m$ & 90.91 $\pm$ 0.28 & 90.74 $\pm$ 0.33 & 90.86 $\pm$ 0.27 & 90.75 $\pm$ 0.35 \\\hline
+      $\alpha_L$ & 0.482 $\pm$ 0.024 & 0.431 $\pm$ 0.033 & 0.429 $\pm$ 0.028 & 0.425 $\pm$ 0.035 \\\hline
+      $\alpha_R$ & 0.410 $\pm$ 0.030 & 0.439 $\pm$ 0.033 & 0.423 $\pm$ 0.029 & 0.440 $\pm$ 0.034 \\\hline
+      $\sigma_L$ & 2.255 $\pm$ 0.239 & 2.218 $\pm$ 0.283 & 2.094 $\pm$ 0.227 & 2.235 $\pm$ 0.285 \\\hline
+      $\sigma_R$ & 2.255 $\pm$ 0.239 & 2.218 $\pm$ 0.283 & 2.094 $\pm$ 0.227 & 2.235 $\pm$ 0.285 \\\hline
    \end{tabular}
    \label{Table_DataAlphaL}
 \end{table}
 
 \begin{table}
-   \caption{Data extracted yields}
-   \centering
-   \begin{tabular}{|c|c|c|c|c|c|}
+\caption{Data extracted yields}
+\centering
+   \begin{tabular}{|c|c|c|c|c|}
       \hline
-       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
-      $N \ge 1$ & 100 & 90 & 80 & 70 \\\hline
-      $N \ge 2$ & 100 & 90 & 80 & 70 \\\hline
-      $N \ge 3$ & 100 & 90 & 80 & 70 \\\hline
-      $N \ge 4$ & 100 & 90 & 80 & 70 \\\hline
+      & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
+      $N \ge 1$ & 188 $\pm$ 15 & 123 $\pm$ 12 & 155 $\pm$ 13 & 113 $\pm$ 13 \\\hline
+      $N \ge 2$ & 39 $\pm$ 7 & 16 $\pm$ 5 & 28 $\pm$ 6 & 16 $\pm$ 4 \\\hline
+      $N \ge 3$ & 8 $\pm$ 3 & 1 $\pm$ 1 & 5 $\pm$ 2 & 2 $\pm$ 1 \\\hline
+      $N \ge 4$ & 0 $\pm$ 1 & 0 $\pm$ 1 & 0 $\pm$ 1 & 0 $\pm$ 1 \\\hline
    \end{tabular}
    \label{Table_DataExtractedYields}
 \end{table}
 
 \begin{figure}
-   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \includegraphics[width=110mm]{FinalPlot_FloatAll_Calo.pdf}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataCaloJet}
 \end{figure}
 
 \begin{figure}
-   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \includegraphics[width=110mm]{FinalPlot_FloatAll_UncorrectedCalo.pdf}
+   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
+   \label{Figure_RatioFromDataUncorrectedCaloJet}
+\end{figure}
+
+\begin{figure}
+   \includegraphics[width=110mm]{FinalPlot_FloatAll_PF.pdf}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataPFJet}
 \end{figure}
 
 \begin{figure}
-   \includegraphics[width=110mm]{ToBeDrawn.pdf}
+   \includegraphics[width=110mm]{FinalPlot_FloatAll_Track.pdf}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataTrackJet}
-\end{figure}
-
-\begin{figure}
-   \includegraphics[width=110mm]{ToBeDrawn.pdf}
-   \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
-   \label{Figure_RatioFromDataUncorrectedCaloJet}
 \end{figure}
 
 
@@ -337,13 +436,13 @@ The difference between different thresholds are taken as an estimate to the jet 
 The result, when applied to data, is shown in figures \ref{Figure_CaloJetJES} and \ref{Figure_PFJetJES} for CaloJets and PF jets respectively.
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{CaloJet_JES.pdf}
 \caption{Jet energy scale uncertainty estimation for CaloJets}
 \label{Figure_CaloJetJES}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{PFJet_JES.pdf}
 \caption{Jet energy scale uncertainty estimation for PF jets}
 \label{Figure_PFJetJES}
 \end{figure}
@@ -364,7 +463,7 @@ The result is shown in figure \ref{Figure_AntiMuonSingleLeg}.  Each histogram is
 Indeed, the shapes are similar to each other.  Unfortunately there isn't enough statistics on the QCD sample to accomodate the increasing statistics in data.
 
 \begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\includegraphics[width=110mm]{DoubleLegAntiMuon.pdf}
 \caption{Anti-muon check}
 \label{Figure_AntiMuonSingleLeg}
 \end{figure}
