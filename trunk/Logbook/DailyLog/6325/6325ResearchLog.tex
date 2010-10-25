@@ -1,0 +1,69 @@
+\DailyTitle{6325 Log (October 22, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Put codes from Shuichi's student and also the Jason variable and pulse shape fitting in Hcal DQM.
+\item Check Matthias' note and see what I need to put in.
+\item Make a plan of rerunning Hcal digi trees and include some more information.
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Implemented the test variables (and Jason's TS4TS5 variable) into offline DQM testbench.
+\item Putting part of Shuichi et al.'s code into the DQM testbench.
+\item Added an ad-hoc version of JP's isolation filter into the DQM testbench.  Everything becomes so slow....
+\end{enumerate}
+
+\DailySection{Check code from Shuichi et al}
+
+Starting from \texttt{HcalNoiseMon/NoiseAnalyzer/src/HcalNoiseInfoAnalyzer.cc}.
+Clean collision events if any of these are satified:
+
+\begin{enumerate}
+\item IC5 calo jet.  Reject if any jet with 8 GeV/c, $|\eta| < 2.95$, EM fraction \textgreater 0.05
+\item Any track (from the \texttt{generalTracks} collection) above 0.1 GeV/c
+\end{enumerate}
+
+Get CaloMET collection, L1 trigger and fill some histogram. Loop over \texttt{HcalNoiseRBXCollection} collection.
+Consider a certain RBX only if number of rechits \textgreater 0 and the total energy \textgreater 10 GeV
+(threshold 1.5 GeV).  Consider HPD only if there is one hit above 5 GeV.
+Noise category:
+
+\begin{enumerate}
+\item Category 1 (RBX): MaxHPD/RBX $\le 0.98$, E2/E10 $> 0.8$, RBX hit $= 10$.  (bug!?)
+\item Category 2 (RBX): MaxHPD/RBX $\le 0.98$, E2/E10 $< 0.33$.
+\item Category 3 (RBX): MaxHPD/RBX $\le 0.98$, $0.33 \le $ E2/E10 $< 0.8$.
+\item Category 4 (RBX): MaxHPD/RBX $\le 0.98$, E2/E10 $> 0.8$, RBX hit $> 10$.
+\item Category 5 (RBX): MaxHPD/RBX $\le 0.98$, E2/E10 $> 0.8$, RBX hit $< 10$.
+\item Category 6: undefined.
+\item Category 7 (HPD, HPD discharge): MaxHPD/RBX $> 0.98$, nHitsHighest (in highest HPD) $\ge$ 9.
+\item Category 8 (HPD, HPD ion feedback): MaxHPD/RBX $> 0.98$, nHitsHighest (in highest HPD) $<$ 9.
+\end{enumerate}
+
+Then it's a lot of histogram filling.
+There are literally a few hundred histograms.  What should I put in?
+Let's choose a few to start with
+
+\begin{enumerate}
+\item Max zero, total zero, E2/E10 trio, HPD/RBX hit count
+\item Hcal noise category summary plot (count of each type of noise, with respect to RBX)
+\end{enumerate}
+
+\DailySection{Notes on Hcal DQM implementation}
+
+It's possible to have sub-directories.  We do not need to declare the directories beforehand.
+The only thing to do is to set the subdirectory before booking histograms.  They will be automatically created.
+
+\DailySection{Reflection}
+
+\DailySection{Goals for next work day}
+
+\begin{enumerate}
+\item Eat lunch
+\item Eat dinner
+\item Find the red herring
+\end{enumerate}
+
+
