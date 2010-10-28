@@ -1,0 +1,49 @@
+\DailyTitle{6334 Log (October 28, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item R\&D on double-chi2 tree.
+\item With muon veto, look at remaining noise.
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Added muon counts to the tree
+\item Tested the idea of adding a off-time penalty to the nominal chi2 fitting
+\item Checked late valid-looking pulse.
+\end{enumerate}
+
+\DailySection{Testing out modified $\chi^2$ - adding timing and fit parameter information}
+
+\DailySubSection{Adding timing offset from the nominal fit}
+
+From the offset distribution of signal (\texttt{Jet} dataset, 100 fC threshold), the peak is at offset -109.
+Therefore we can add an additional term to penalize the nominal fit from going too far.  The modified $\chi^2$ is
+
+\begin{equation}
+\chi^2 = \left(\sum_{i=1}^{10} \left(\dfrac{F(i) - TS_i}{\sigma_{TS_i}}\right)^2 \right)
+   e^{+\dfrac{(t-<t>)^2}{2 \sigma^2}},
+\nonumber
+\end{equation}
+
+where $F(i)$ is the ideal pulse, $TS_i$ is the pulse, and $t$ the offset, $<t>$ average (expected) offset.
+When the width is set to 25 ns, no too much has changed in both signal and noise.  Noise sample
+moves more to the negative $\Lambda_{linear}'$ side than signal.
+Still not usable.
+Try to rerun with 12.5 ns.  The noise sample moves even more....but it seems that they approach $\Lambda_{linear}' = 0$.
+Same story as before, let's try to look at them and see if we can design anything new for them.
+
+\DailySubSection{Pulses where $\Lambda_{linear}' - \Lambda_{linear} > 1$}
+
+They all share the same characteristic.  Most of them are good-looking pulses, but one TS late.
+Not sure what is causing this.  If the tracking looked only in TS4, then it's normal that there isn't a PV around.
+In that case something probably pre-fired.  Let's look at a few event display.
+
+....No, usually there isn't much around in these events.  What is going on?
+
+\DailySection{Reflection}
+
+\DailySection{Goals for next work day}
+
