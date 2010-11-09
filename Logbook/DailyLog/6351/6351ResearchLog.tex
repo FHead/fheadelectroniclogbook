@@ -1,0 +1,26 @@
+\DailyTitle{6351 Log (November 8, 2010)}
+
+\DailySection{Goals}
+
+\begin{enumerate}
+\item Finalize flagger code
+\item Have fun with Hcal noise fitting
+\item Side project: prepare code structure for particle gun studies
+\end{enumerate}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Implemented fit flagger into CMSSW reco structure
+\end{enumerate}
+
+\DailySection{Flagger implementation}
+
+Added class \texttt{HBHEPulseShapeFlagSetter} in package \texttt{RecoLocalCalo/HcalRecProducers}, files \texttt{HBHEPulseShapeFlag.cc} (and \texttt{.h}), in \texttt{CMSSW} version \texttt{3\_9\_1}.
+Pulse shape is directly from \texttt{HcalPulseShape} class, without extra input text file.
+Things compile.  Now I should add the flag fields in the double-chi2 tree, and check performance.
+Now that the reconstruction is in \texttt{CMSSW\_3\_9\_1}, reflagger for JP filter is probably not necessary, and the bit position is also different.
+Let's write out the full aux word for now.
+
+ps. it should be the \texttt{flag} word
+
