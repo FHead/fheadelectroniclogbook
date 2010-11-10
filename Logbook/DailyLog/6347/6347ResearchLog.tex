@@ -1,0 +1,34 @@
+\DailyTitle{6347 Log (November 7, 2010)}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Started peak hunting project
+\end{enumerate}
+
+\DailySection{Pion gun study}
+
+Started simulation jobs using pion gun (500000, PT = 1-500 GeV/c, flat $\eta-\phi$).
+They should finish within one or two days.
+Brainstorming on things to look at:
+
+\begin{enumerate}
+\item What is the percentage that will start showering in ECAL?
+\item Energy in Ecal and Hcal as a function of transverse momentum
+\item Transverse shower shape in Hcal and Ecal
+\item Is it at all possible to see the mass peak from track and calorimeters?
+\item If there is a kink in the track, how is the data represented?
+\item What is the chance of decaying into a muon in-flight?  Can we see the kink in the track?  Is it compatible with expectation?
+\item Is it possible to use momentum conservation together with the assumption that neutrino is massless to see the pion mass peak?
+\item Any visible difference between $\pi^+$ and $\pi^-$?
+\item Charge mis-identification rate
+\end{enumerate}
+
+Also started batch jobs for electrons, photons, pi zeros, protons and neutrons.
+
+Note: \texttt{CMSSW} version 3.7.0 patch4 used, with \texttt{cmsDriver} option:
+\texttt{SingleMuPt1\_cfi.py -s GEN,SIM,DIGI,L1,DIGI2RAW,HLT:GRun --conditions START37\_V6::All --datatier GEN-SIM-RAW --eventcontent RAWSIM --beamspot Realistic7TeVCollision}
+
+
+
+
