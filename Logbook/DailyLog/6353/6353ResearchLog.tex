@@ -10,24 +10,21 @@
 \DailySection{Summary List}
 
 \begin{enumerate}
-\item Yay
+\item Setup script to find cut position
 \end{enumerate}
 
 \DailySection{Setting cut positions}
 
-A side note: should I make a different limit for HB and HE?  Maybe later when I have more statistics.
+Side note: should I make a different limit for HB and HE?  Maybe later when I have more statistics.
 
-
-
-
-\DailySection{Reflection}
-
-\DailySection{Goals for next work day}
+A reduced tree is produced with total charge and various discriminants, after cleaning.
+Only events with nominal MET smaller than 200 is kept for a better signal purity.
+This tree is then fed into another program that calculates cut positions:
 
 \begin{enumerate}
-\item Eat lunch
-\item Eat dinner
-\item Find the red herring
+\item First sort all records in total charge
+\item Group every 500000 (this count changeable) pulses into a group
+\item For each group sort in terms of discriminants and decide cut position from tolerance level (roughly 0.01\%)
 \end{enumerate}
 
-
+The chain is working.  I still need to find a way to smooth it out.
