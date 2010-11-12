@@ -4,30 +4,73 @@
 
 \begin{enumerate}
 \item Finish up infrastructure for cuts.
-\item Run on more data
+\item Run on more data!!!
 \end{enumerate}
 
 \DailySection{Summary List}
 
 \begin{enumerate}
-\item
+\item More data to determine cut positions!!!
+\item Help Lukas et al. to produce \texttt{RooDataSet}
+\item Briefly looksed at the HI monojet event
 \end{enumerate}
 
 \DailySection{Data run for cut position setting}
 
 All of them are from \texttt{Jet} dataset, recent runs.  Runs included so far:
 146644, 146804, 146807, 146944, 147048, 147114, 147454, 147754, 148029, 148031, 148058, 148862, 148864,
-149011, 149181 and 149291.  There will be 10-20 times more statistics than previous iteration.
+149011, 149181 and 149291.  There will be 10-20 times more statistics than previous iteration...totalling about 5M events.
 
+\DailySection{Action items for Hcal pulse shape fitting}
 
-\DailySection{Reflection}
-
-\DailySection{Goals for next work day}
+Talked briefly with Artur.  He is going to give a talk next Monday.
 
 \begin{enumerate}
-\item Eat lunch
-\item Eat dinner
-\item Find the red herring
+\item MET vs. MET plot (roughly purity of the cleaning)
+\item Submit jobs for muon and MET datasets too
+\item Somehow show the efficiency of the cleaning
+\item Set the date for first draft of hcal pulse discriminant documentation to be next Friday
+\item Ask Jeff for advice on timine performance evaluation
+\item Check performance again on the 25 skimmed events after the cut positions are decided.
 \end{enumerate}
+
+
+\DailySection{Adding b-tagged branches to \texttt{RooDataSet} for Lukas et al.}
+
+\begin{enumerate}
+\item Number of calojets within $|\eta|$ range 2.4 that has b-tag variable at least 0.4 and 0.7.  Calo jet threshold 30 GeV/c.
+\item Match calo jets to final b-hadrons.  The ``final'' is defined by the presense of b quark.  Matching cone is 0.3.
+\item For matched calo jets, export count, and also the two counts for different b-tag thresholds.
+\item Samples to run on:
+   \begin{enumerate}
+   \item \texttt{MADGRAPH}: $t\bar{t}$, Z+Jets, W+Jets
+   \item Single top (3 channels)
+   \item Inclusive $\mu$ 15......not available.....use \text{ppMuX} instead.
+   \item Muon primary dataset
+   \end{enumerate}
+\end{enumerate}
+
+Note: sometimes there are b-quarks in the gen-particle list, instead of b-hadrons.  While writing code it's best to include this possibility.
+
+
+\DailySection{Hcal monojet event in HI run}
+
+Quote the email to Ed from me:
+
+\begin{quote}
+Hi Ed,
+
+Since I'm doing work on Hcal noise lately, I took a look the Hcal pulse shape of this event, and it looks like the source of the spike is from the Hcal HPD.
+
+There are a lot of small rechits around (5-10 GeV), and they are mostly in time or a bit off.  There are three rechits, including the one above 100 GeV and another one around 25 GeV, that are more than 50ns late.  The three are located at (ieta, iphi, depth) = (-2, 9, 1), (-6, 9, 1) and (-16, 9, 2).  Incidentally these three are together in the HPD. [1]  While the real source of this is not clear, I would say that this is due to noise in HPD.
+
+best,
+
+Yi Chen
+
+[1] See page 7, HB/RM2.  Towers (in red) 2, 6, 16r (r=rear) are together in one side.  \url{http://cmsdoc.cern.ch/cms/HCAL/document/www-ppd.fnal.gov/tshaw.myweb/CMS/HPD/HB\_Interface\_Cards\_v2.pdf}
+\end{quote}
+
+
 
 
