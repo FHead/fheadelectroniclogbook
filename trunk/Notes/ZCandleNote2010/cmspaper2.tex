@@ -1,5 +1,5 @@
-\documentclass[10pt,a4paper,onecolumn]{article}
-\usepackage[latin1]{inputenc}
+\documentclass{cmspaper2}
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -11,29 +11,42 @@
 \usepackage{footnote}
 \usepackage{hyperref}
 
-\hypersetup{
-    colorlinks,
-    % citecolor=black,
-    % filecolor=black,
-    % linkcolor=black,
-    % urlcolor=black
-}
-
 \begin{document}
 
-\author{Yi Chen\\
-   California institute of technology\\
-   \texttt{chen.yi.first@gmail.com}}
-\title{40 $pb^{-1}$ Z Candle Note Draft}
-\date{\today}
-\maketitle
+\begin{titlepage}
 
-\tableofcontents
-\clearpage 
+   \cmsnote{2010/998}
+   \date{\today}
+
+   \title{Z candle note}
+
+   \begin{Authlist}
+    A.~Author, B.~Author, C.~Author
+       \Instfoot{cern}{CERN, Geneva, Switzerland}
+    D.~Author, E.~Author, F.~Author
+       \Instfoot{ieph}{Institute of Experimental Physics, Hepcity, Wonderland}
+   \end{Authlist}
+
+  \collaboration{CMS collaboration}
+
+  \begin{abstract}
+  \end{abstract}
+
+\end{titlepage}
+
+\setcounter{page}{2}
 
 \section{Introduction}
 
-Vector boson!
+% 1. BG Scaling, except exponential relation
+% 2. Z to muons + jets provide good handle to study various other things
+% 3. What is in this writeup
+
+Vector boson with associated jet production provides a good handle on understanding detector and reconstruction performances.
+Since CMS is specialized in measuring muons, the di-muon channel provides a very clean way of identifying Z boson.
+
+.......> <
+
 
 \section{Data \& MC samples}
 
@@ -69,7 +82,7 @@ Data samples included in this note are listed in table \ref{Table_DataSamples}.
 
 \section{Jet flavors}
 
-All the jets are clustered using the anti-Kt algorithm with cone radius 0.5.  A few different types of jeta are considered in
+All the jets are clustered using the anti-Kt algorithm with cone radius 0.5.  A few different types of jets are considered in
 this analysis.
 
 \begin{enumerate}
@@ -89,7 +102,8 @@ this analysis.
    The threshold for PF jet counting is 20 GeV/c.  Compatibility with the primary vertex is not implemented yet.
 \end{enumerate}
 
-\section{Selections.  Muon, Z.  Isolation}
+
+\section{Event selections}
 
 In order to retain as much signal as possible, only a minimal selection is applied to data.
 For candidate muons, we require the following.
@@ -111,22 +125,28 @@ in the vicinity of the muon (see figure \ref{Figure_CandidateMuonVsClosestJetPT}
 Therefore, a isolation cut is selected as 30\% of relative combined isolation with cone size 0.3.  This causes roughly 5\%
 efficiency drop for one-jet case, consistent with expectations, as shown in figure \ref{Figure_IsolationCutVsRejectionPercentage}.
 
-\begin{figure}
-\includegraphics[width=110mm]{HPFJetClosestToFirstLegDEtaDPhi.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{HPFJetClosestToFirstLegDEtaDPhi}
 \caption{Candidate muon vs. closest jet, deta dphi plot (MC signal)}
 \label{Figure_CandidateMuonVsClosestJetEtaPhi}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{HPFJetClosestToFirstLegPTPT.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{HPFJetClosestToFirstLegPTPT}
 \caption{Muon PT vs. closest jet PT (MC signal)}
 \label{Figure_CandidateMuonVsClosestJetPT}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{DoubleLeg_WithQCD_1PFJet.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{DoubleLeg_WithQCD_1PFJet}
 \caption{Isolation cut vs. percentage that was cut out in MC signal events}
 \label{Figure_IsolationCutVsRejectionPercentage}
+\end{center}
 \end{figure}
 
 For any event with at least two good muon candidates as defined in the previous section, the muon pair is formed as a Z candidate if
@@ -292,10 +312,12 @@ Fortunately, the signal shape does not depend too much on isolation, as shown in
 Therefore we can apply a very tight isolation cut to remove all backgrounds and some signal events, and fit to get $\alpha_L$ to be used to extract signal yield
 as a function of jet multiplicity.
 
-\begin{figure}
-\includegraphics[width=110mm]{AlphaLVsIsolation_ReasonableIsolation.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{AlphaLVsIsolation_ReasonableIsolation}
 \caption{Signal shape vs. isolation}
 \label{Figure_SignalShapeVsIsolation}
+\end{center}
 \end{figure}
 
 \section{Fit result on data}
@@ -310,19 +332,11 @@ After fitting, the extracted yields are shown in table \ref{Table_DataExtractedY
    \begin{tabular}{|c|c|c|c|c|c|}
       \hline
       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
-<<<<<<< .mine
       $m$ & 90.83 $\pm$ 0.15 & 90.95 $\pm$ 0.18 & 91.04 $\pm$ 0.16 & 90.96 $\pm$ 0.20 \\\hline
       $\alpha_L$ & 0.522 $\pm$ 0.006 & 0.510 $\pm$ 0.008 & 0.488 $\pm$ 0.007 & 0.493 $\pm$ 0.009 \\\hline
       $\alpha_R$ & 0.441 $\pm$ 0.008 & 0.454 $\pm$ 0.009 & 0.448 $\pm$ 0.008 & 0.448 $\pm$ 0.011 \\\hline
       $\sigma_L$ & 2.043 $\pm$ 0.115 & 2.225 $\pm$ 0.145 & 2.342 $\pm$ 0.129 & 2.237 $\pm$ 0.159 \\\hline
       $\sigma_R$ & 2.205 $\pm$ 0.114 & 2.135 $\pm$ 0.138 & 2.071 $\pm$ 0.120 & 2.143 $\pm$ 0.154 \\\hline
-=======
-      $m$ & 90.75 $\pm$ 0.39 & 91.27 $\pm$ 0.37 & 90.87 $\pm$ 0.37 & 90.79 $\pm$ 0.42 \\\hline
-      $\alpha_L$ & 0.530 $\pm$ 0.013 & 0.494 $\pm$ 0.017 & 0.502 $\pm$ 0.015 & 0.529 $\pm$ 0.017 \\\hline
-      $\alpha_R$ & 0.433 $\pm$ 0.016 & 0.458 $\pm$ 0.018 & 0.441 $\pm$ 0.018 & 0.416 $\pm$ 0.024 \\\hline
-      $\sigma_L$ & 1.894 $\pm$ 0.280 & 2.514 $\pm$ 0.318 & 2.225 $\pm$ 0.292 & 1.895 $\pm$ 0.331 \\\hline
-      $\sigma_R$ & 2.221 $\pm$ 0.255 & 1.840 $\pm$ 0.255 & 2.182 $\pm$ 0.265 & 2.378 $\pm$ 0.316 \\\hline
->>>>>>> .r42
    \end{tabular}
    \label{Table_DataAlphaL}
 \end{table}
@@ -333,44 +347,45 @@ After fitting, the extracted yields are shown in table \ref{Table_DataExtractedY
    \begin{tabular}{|c|c|c|c|c|}
       \hline
       & CaloJet & Uncorrected CaloJet & PF Jet & Track jet \\\hline
-<<<<<<< .mine
       $N \ge 1$ & 3469 $\pm$ 75 & 2330 $\pm$ 52 & 2874 $\pm$ 63 & 1858 $\pm$ 50 \\\hline
       $N \ge 2$ & 767 $\pm$ 33 & 416 $\pm$ 24 & 622 $\pm$ 28 & 311 $\pm$ 20 \\\hline
       $N \ge 3$ & 159 $\pm$ 15 & 72 $\pm$ 10 & 116 $\pm$ 12 & 41 $\pm$ 8 \\\hline
       $N \ge 4$ & 37 $\pm$ 7 & 11 $\pm$ 5 & 21 $\pm$ 6 & 5 $\pm$ 3 \\\hline
       $N \ge 5$ & 6 $\pm$ 3 & 0 $\pm$ 0 & 2 $\pm$ 2 & 0 $\pm$ 0 \\\hline
-=======
-      $N \ge 1$ & 799 $\pm$ 105 & 554 $\pm$ 26 & 681 $\pm$ 31 & 465 $\pm$ 22 \\\hline
-      $N \ge 2$ & 166 $\pm$ 29 & 91 $\pm$ 11 & 141 $\pm$ 14 & 75 $\pm$ 10 \\\hline
-      $N \ge 3$ & 26 $\pm$ 8 & 11 $\pm$ 5 & 25 $\pm$ 6 & 9 $\pm$ 3 \\\hline
-      $N \ge 4$ & 6 $\pm$ 4 & 3 $\pm$ 3 & 3 $\pm$ 2 & 0 $\pm$ 2 \\\hline
->>>>>>> .r42
    \end{tabular}
    \label{Table_DataExtractedYields}
 \end{table}
 
-\begin{figure}
-   % \includegraphics[width=110mm]{FinalPlot_FloatAll_Calo.pdf}
+\begin{figure}[hbtp]
+   \begin{center} 
+  \includegraphics[width=150mm]{FinalPlot_FloatAll_Calo}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataCaloJet}
+   \end{center}
 \end{figure}
 
-\begin{figure}
-   % \includegraphics[width=110mm]{FinalPlot_FloatAll_UncorrectedCalo.pdf}
+\begin{figure}[hbtp]
+   \begin{center}
+   \includegraphics[width=150mm]{FinalPlot_FloatAll_UncorrectedCalo}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataUncorrectedCaloJet}
+   \end{center}
 \end{figure}
 
-\begin{figure}
-   % \includegraphics[width=110mm]{FinalPlot_FloatAll_PF.pdf}
+\begin{figure}[hbtp]
+   \begin{center}
+   \includegraphics[width=150mm]{FinalPlot_FloatAll_PF}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataPFJet}
+   \end{center}
 \end{figure}
 
-\begin{figure}
-   % \includegraphics[width=110mm]{FinalPlot_FloatAll_Track.pdf}
+\begin{figure}[hbtp]
+   \begin{center}
+   \includegraphics[width=150mm]{FinalPlot_FloatAll_Track}
    \caption{Summary of N/(N+1) jet ratio for different kinds of jets}
    \label{Figure_RatioFromDataTrackJet}
+   \end{center}
 \end{figure}
 
 
@@ -393,35 +408,45 @@ Fit with wrong $\alpha_L$ value while floating others is also analyzed with toy 
 This is an estimate of the bias in realistic conditions as in the fit to extract signal value.
 The result is shown in figure \ref{Figure_RelativeYieldChangingAlphaLFloatingOthers}.
 
-\begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{AlphaL_RelativeSignalYieldGood_1}
 \caption{Signal yields relative to the perfect case when $\alpha_L$ is varied while keeping others fixed.}
 \label{Figure_RelativeYieldChangingAlphaLOnly}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{AlphaR_RelativeSignalYieldGood_1}
 \caption{Signal yields relative to the perfect case when $\alpha_R$ is varied while keeping others fixed.}
 \label{Figure_RelativeYieldChangingAlphaROnly}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{SigmaL_RelativeSignalYieldGood_1}
 \caption{Signal yields relative to the perfect case when $\sigma_L$ is varied while keeping others fixed.}
 \label{Figure_RelativeYieldChangingSigmaLOnly}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
-\caption{Signal yields relative to the perfect case when $\sigma_L$ is varied while keeping others fixed.}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{SigmaR_RelativeSignalYieldGood_1}
+\caption{Signal yields relative to the perfect case when $\sigma_R$ is varied while keeping others fixed.}
 \label{Figure_RelativeYieldChangingSigmaROnly}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{ToBeDrawn.pdf}
-\caption{Signal yields relative to the perfect case when $\sigma_L$ is varied and floating others.}
-\label{Figure_RelativeYieldChangingAlphaLFloatingOthers}
-\end{figure}
+% \begin{figure}[hbtp]
+% \begin{center}
+% \includegraphics[width=150mm]{ToBeDrawn}
+% \caption{Signal yields relative to the perfect case when $\alpha_L$ is varied and floating others.}
+% \label{Figure_RelativeYieldChangingAlphaLFloatingOthers}
+% \end{center}
+% \end{figure}
 
 
 \section{JES uncertainty}
@@ -448,16 +473,20 @@ Therefore in order to estimate the systematics of the uncertainties, we performe
 The difference between different thresholds are taken as an estimate to the jet energy correction uncertainty.
 The result, when applied to data, is shown in figures \ref{Figure_CaloJetJES} and \ref{Figure_PFJetJES} for CaloJets and PF jets respectively.
 
-\begin{figure}
-\includegraphics[width=110mm]{CaloJet_JES.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{CaloJet_JES}
 \caption{Jet energy scale uncertainty estimation for CaloJets}
 \label{Figure_CaloJetJES}
+\end{center}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=110mm]{PFJet_JES.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{PFJet_JES}
 \caption{Jet energy scale uncertainty estimation for PF jets}
 \label{Figure_PFJetJES}
+\end{center}
 \end{figure}
 
 
@@ -475,14 +504,33 @@ This is done by comparing the following
 The result is shown in figure \ref{Figure_AntiMuonSingleLeg}.  Each histogram is scaled to the same area so that we can compare the shape.
 Indeed, the shapes are similar to each other.  Unfortunately there isn't enough statistics on the QCD sample to accomodate the increasing statistics in data.
 
-\begin{figure}
-\includegraphics[width=110mm]{DoubleLegAntiMuon.pdf}
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=150mm]{DoubleLegAntiMuon}
 \caption{Anti-muon check}
 \label{Figure_AntiMuonSingleLeg}
+\end{center}
 \end{figure}
 
+
+\section{Summary}
+
+
+\begin{thebibliography}{9}
+   \bibitem{CRAFT09Noise} {\bf CMS DN-2010/007},
+      J. Hirschauer, S. Kunori, S. Sharma, J. Wang,
+      {\em "HCAL Noise Study during CRAFT09"}
+   \bibitem{Anomalous7TeV} {\bf CMS DP-2010/009},
+      CMS Collaboration,
+      {\em "HCAL Anomalous Signals in 7 TeV Data"}
+   \bibitem{NoiseAtStartup} {\bf CMS IN-2010/006},
+      J-P. Chou, S. Eno, S. Kunori, S. Sharma, J. Wang,
+      {\em "Anomalous HB/HE Noise at Startup: Characteristics and Rejection Algorithms"}
+   \bibitem{ICHEPNote} {\bf CMS AN-2010/165},
+      The HCAL DPG noise WG members,
+      {\em "HCAL Noise Working Group Summary for CMS Summer 2010 analyses"}
+\end{thebibliography}
+ 
+\pagebreak
+
 \end{document}
-
-
-
-
