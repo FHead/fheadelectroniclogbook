@@ -1,0 +1,43 @@
+\DailyTitle{6433 Log (December 15, 2010)}
+
+\DailySection{Summary List}
+
+\begin{enumerate}
+\item Writing short bunch spacing section in the Hcal note
+\item An attempt at errorbar on data
+\end{enumerate}
+
+\DailySection{One attempt at errorbar on data}
+
+Since direct square root of count does not make sense, I tried to see if I can tell anything with it.
+What I want to measure is the 95\% (or some other percentage) C.L. from the probability density function $P(\theta | x)$,
+where $\theta$ is the theoretical parameter (real count), and $x$ is the count we see.
+To get $P(\theta|x)$, we can borrow the Bayesian formation:
+
+\begin{equation}
+P(\theta | x) = \dfrac{P(x | \theta) P(\theta)}{P(x)}.\nonumber
+\end{equation}
+
+The different ingredients are as follows:
+
+\begin{enumerate}
+\item $P(x)$ is a constant in this calculation, and it doesn't interfere with the calculation of percentages.
+\item $P(x | \theta)$ is the probability of observing $x$ given than the real parameter is $\theta$.  This can be modelled well by an Poissonian distribution.
+\item $P(\theta)$ is the tricky one.  For now I am assuming that it is a Gaussian distribution around some theory value with an uncertainty.
+The center of Gaussian could well be the value predicted from the fit for a certain bin.
+\end{enumerate}
+
+Fortunately $P(\theta | x)$ has only single peak and is monotonically decreasing away from the peak.
+So a program is written (using slower, error-proof method) to extract the 90\% limit from the distribution.
+For example if we observe 0 events, and the prediction is $10 \pm 3$, then the 95\% band is 0-6.70929.
+
+One can also assume a flat prior.....in which case the error band when we see in case of non-observation is always 0-1
+
+
+
+
+
+
+
+
+
