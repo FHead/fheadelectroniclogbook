@@ -1,0 +1,10 @@
+#!/bin/sh
+
+/home/yichen/Programs/MarkDown/Markdown_1.0.1/Markdown DailyLogs.md | \
+   htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 \
+   --textfont helvetica --bodyfont helvetica --numbered --nup 1 --book --toclevels 5 \
+   --titlefile DailyLogTitle.html - > DailyLogs.pdf
+
+
+
+
