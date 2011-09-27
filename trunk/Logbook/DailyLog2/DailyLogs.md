@@ -37,7 +37,7 @@ Not a high priority I'll say
 
 ## Code reading ##
 
-* Re-read and make sure of the algorithm to generate limits - expected limits for now
+* <strike>Re-read and make sure of the algorithm to generate limits - expected limits for now</strike>
 
 ## Others ##
 
@@ -63,13 +63,14 @@ Not a high priority I'll say
     for this signal cross section hypothesis
     * Similarly for +1sigma, -1sigma, etc.
 * Collect the CLs value for different signal hypotheses
-    * I was reading one-sided CLs limit, so it's finding the 95% point of this curve starting from low
-    cross section, with x axis being cross section and y axis CLs value
+    * I was reading one-sided CLs limit, so it's finding the 1-95% point of this curve starting in the high
+    cross section part, with x axis being cross section and y axis CLs value
+* For observed limit I think it is evaluating the CLs number for the "data" for different cross section
+hypothesis, and then on the cross section-CLs graph find the 1-C.L. point
 
 
 
-
-
+# 7322 (September 27, 2011) #
 
 
 
