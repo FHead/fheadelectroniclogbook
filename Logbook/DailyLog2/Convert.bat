@@ -1,0 +1,1 @@
+markdown2pdf DailyLogs.md --toc -o LogBook.pdf

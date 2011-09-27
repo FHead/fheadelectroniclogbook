@@ -47,24 +47,24 @@ Not a high priority I'll say
 ## Recap of current understanding of the CLs "official tool" --- expected limit ##
 
 * First we build signal and background models as follows
-   * Background is constrained to be around the input value with some error
-   * Signal yield is written as lumi x efficiency x cross section x extra factor
-   * The extra factor is constrained to be centered at 1, with width dictated by input
-   * "B" = constrain on background yield
-   * "S+B" = constraint on background yield x constraint on signal extra factor x constraint on total yield
-   * Each constraint can be Gaussian or log-normal (or some other stuff....) but the script force us
-   to use the same for all constraints
+    * Background is constrained to be around the input value with some error
+    * Signal yield is written as lumi x efficiency x cross section x extra factor
+    * The extra factor is constrained to be centered at 1, with width dictated by input
+    * "B" = constrain on background yield
+    * "S+B" = constraint on background yield x constraint on signal extra factor x constraint on total yield
+    * Each constraint can be Gaussian or log-normal (or some other stuff....) but the script force us
+    to use the same for all constraints
 * Given a signal cross section hypothesis, make a few distributions
-   * p-value distribution, sample drawn from background model, evaluated on background distribution
-   * p-value distribution, sample drawn from signal+background model, evaluated on background distribution
-   * p-values calculated from likelihood distribution
-   * Draw random numbers from the above 2 distributions, and take the ratio
-   * For the expected limit, we take median of the ratio distribution and call it _the_ CLs value
-   for this signal cross section hypothesis
-   * Similarly for +1sigma, -1sigma, etc.
+    * p-value distribution, sample drawn from background model, evaluated on background distribution
+    * p-value distribution, sample drawn from signal+background model, evaluated on background distribution
+    * p-values calculated from likelihood distribution
+    * Draw random numbers from the above 2 distributions, and take the ratio
+    * For the expected limit, we take median of the ratio distribution and call it _the_ CLs value
+    for this signal cross section hypothesis
+    * Similarly for +1sigma, -1sigma, etc.
 * Collect the CLs value for different signal hypotheses
-   * I was reading one-sided CLs limit, so it's finding the 95% point of this curve starting from low
-   cross section, with x axis being cross section and y axis CLs value
+    * I was reading one-sided CLs limit, so it's finding the 95% point of this curve starting from low
+    cross section, with x axis being cross section and y axis CLs value
 
 
 
