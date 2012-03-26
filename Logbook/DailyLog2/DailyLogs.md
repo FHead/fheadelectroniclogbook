@@ -9,7 +9,7 @@ and larger point size
     * <strike>QCD fit</strike>
     * <strike>Electron overlay plots</strike>
     * <strike>Hadronic overlay plots</strike>
-* Plot that shows improvement when we select higher threshold for b-jet counting
+* <strike>Plot that shows improvement when we select higher threshold for b-jet counting</strike>
 * We need new spaghetti plots
 * <strike>Legend on the trigger plots larger</strike>
 * <strike>Higher statistics for the example 2D plot</strike>
@@ -44,7 +44,7 @@ Not a high priority I'll say
 * Skim events with delta phi around zero
 * Skim events in the signal region and start scanning by eye
 
-## Recap of current understanding of the CLs "official tool" --- expected limit ##
+## Recap of current understanding of the CLs "official tool" ##
 
 * First we build signal and background models as follows
     * Background is constrained to be around the input value with some error
@@ -71,6 +71,89 @@ hypothesis, and then on the cross section-CLs graph find the 1-C.L. point
 
 
 # 7322 (September 27, 2011) #
+
+## Todo's left over from before ##
+
+* Redo the fits with systematic uncertainties
+    * Mix in JER uncertainty while doing the JES fit
+* <strike>Make the new yield table</strike>
+* Swap top and W in the background estimation process
+* <strike>Better spaghetti plots</strike>
+* Read through note again and again and again and again and again
+
+## Limit rebuilding ##
+
+* Do a few toy studies to learn about properties of the CLs
+    * Background-only model seems to do fine
+    * S+B is taking a very long time - which I have no idea why
+* Build similar S+B and B models in RooFit compared to the official code
+
+## New todo's to potentially improve stuff ##
+
+* Make data/MC comparisons for tight tag
+* Same comparison with cut on delta phi
+* Get the runs with negative numbers, make comparison excluding those runs
+
+
+
+# 7323 (September 28, 2011) #
+
+## Todo's left over from before ##
+
+* Finish running on the missing 3 runs (totalling 169 /pb)
+    * Having problems....
+* <strike>Make comparisons excluding the three runs</strike>
+    * The noise peak is still there in the R distribution....
+    * No good
+* Start fixing texts in the analysis note
+* Prevent people from looking at this private logbook
+* How do things look when we add in a delta phi cut?
+    * Similar....  well we don't really cut out that many
+
+## Notes on relaxing R2 0.5 cut and adding delta phi cut ##
+
+* Not much has chnaged
+* Redid the main fits
+    * Electron box result looks suspicious
+    * Hadronic ones are fine
+* Discovered a bug in the event cleaning list
+    * electron and muon ones are not cleaned, unfortunately
+    * Made a new list for Artur to run on
+* Limit seems to be improved by quite a bit
+
+
+
+# 7324 (September 29, 2011) #
+
+## Miscellaneous list ##
+
+* Start implementing systematic uncertainties
+* Realized that the normalization-type ones are not needed.  Fewer fits to do!
+
+
+
+# 7341 (October 10, 2011) #
+
+## Action items until the end of next week ##
+
+* Upgrade PAS and analysis note
+* Fix electron ID and re-make simulation files
+* Request more official samples (for different mass points)
+* Book tickets to Rome and Paris (and place to stay, etc.)
+* Explain difference between data/simulation
+* Try to fit to get PDF from electrons, then apply to muon dataset
+* Check if all data is used
+* Re-interpret limit with non-100-percent branching fraction
+* Bias from jet/MET type
+
+
+
+
+
+
+
+
+
 
 
 
