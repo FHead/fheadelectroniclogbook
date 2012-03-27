@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,onecolumn]{report}
+\documentclass[12pt,a4paper,onecolumn]{report}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -10,6 +10,12 @@
 \usepackage{textcomp}
 \usepackage{footnote}
 \usepackage{hyperref}
+\usepackage{color}
+
+\oddsidemargin = 0mm
+\topmargin = 0mm
+\textwidth = 160mm
+\textheight = 225mm
 
 \hypersetup{
     colorlinks,
@@ -31,6 +37,9 @@
 \newcommand{\DailyTitle}[1]{\section{#1}}
 \newcommand{\DailySection}[1]{\subsection{#1}}
 \newcommand{\DailySubSection}[1]{\subsubsection{#1}}
+
+\definecolor{lavender}{rgb}{0.8,0.5,1.0}
+\newcommand{\ActionItem}{{\color{lavender} \sc (action item)}}
 
 \newcommand{\tweakedtilde}{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
 
