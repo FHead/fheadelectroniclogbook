@@ -1,6 +1,204 @@
 \DailyTitle{7671 Log (March 26, 2012)}
 
-\DailySection{S}
+\DailySection{Current status on LQ3 analysis reload}
+
+\DailySubSection{Potential improvements from the last round}
+
+A simplified strategy is used in the last round ($1.7 fb^{-1}$) of LQ analysis,
+resulting in sub-optimal performance.  Even though there is no direct comparison,
+we can already see it from the T2bb simplified model result, compared to ATLAS.
+There are a few things that could be better, in principle.
+The strategy was fuzzy, and potential difference is covered by big assigned
+systematics.  To beat that down, we need to re-examine each of the
+existing pieces, listed as follows:
+
+\begin{enumerate}
+\item The V+jet background was taken from simulation.  This causes a number of
+systematics to be added in, and in general it's not the best thing to do.
+\item V+jet background can be further broken down into Z+jet and W+jet.
+The former comes mainly from the invisible decays, and the latter being
+leptonic decay with escaping lepton.
+\item Potential bias from muonic sample to hadronic sample is not properly
+treated; it's kind of blanket-ed into the huge systematic uncertainty.
+\item Yield from MC on V+jet (especially Z+jet) is not good.  It can potentially create huge bias.
+\item Due to the fact that we take different components from different places,
+it's hard to construct a simple likelihood in the end for easier limit setting.
+\item It's a counting experiment, and the background prediction is re-modelled as
+a log-normal distribution.  It's unknown what the effect will be.
+\end{enumerate}
+
+To improve these, effort on a few different fronts are formed, or at least planned.
+We have a time scale of a few of weeks to solve most of the problems and get
+the most out of it:
+
+\begin{enumerate}
+\item Try to estimate Z to invisible shape from Z to muon samples.
+\item Try to estimate the same thing using photon samples.
+\item What b-tagger to use?
+\item Find some way to get the W+jet background shape
+\item Estimate and check size of bias going from muonic to hadronic.
+\item Somehow put everything together to get a likelihood.
+\item Study how the complicated b-tagging systematics is supposed to be applied.
+\end{enumerate}
+
+\DailySubSection{Estimate Z to invisible from Z to di-muon}
+
+Z+jet background can be estimated as
+
+\begin{equation}
+\dfrac{d^2 \sigma^{Z\rightarrow\nu\nu}}{d M_R d R^2} = 
+\dfrac{d^2 \sigma^{Z\rightarrow\mu\mu}}{d M_R d R^2} \times
+\dfrac{A^{Z\rightarrow\nu\nu}(M_R, R^2)}{A^{Z\rightarrow\mu\mu}(M_R, R^2)} \times
+\dfrac{Br(Z\rightarrow\nu\nu)}{Br(Z\rightarrow\mu\mu)},
+\end{equation}
+
+where A is the acceptance factor.
+Note the equal sign in the equation.  With this we can potentially
+estimate both the shape and normalization.  For the acceptance
+factor we can potentially obtain from simulation.  While the jet structure
+will be different in different simulations, with the constrain on $M_R$ and
+$R$ hopefully the factor is trust-able.  Indeed we can test it from {\sc Madgraph}
+and {\sc Pythia8} gen-level samples.  I generated samples myself, and calculate
+acceptance factor requiring both muons being in the detector fiducial region ($|\eta| < 2.4$)
+and have some minimal $p_T$ (20 GeV).  We observe that acceptance factors obtained by
+{\sc Madgraph} and {\sc Pythia8} samples are agreeing within error,
+though one is always somewhat higher than the other.
+See figure \ref{Figure_7671_AcceptanceFactor} for example.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\caption{Acceptance factor to go from $Z\rightarrow\mu\mu$ to $Z\rightarrow\nu\nu$.
+The number shows the percentage of events that will not make it into the di-muon sample.}
+\label{Figure_7671_AcceptanceFactor}
+\end{figure}
+
+I generated also high statistics sample with {\sc pythia8} ($10^9$ events), and obtained a map in bins of $M_R$ and $R$.
+If we proceeded with this, there are two problems to be solved.  One is how we use this map: whether to
+use it as binned template or fit it and obtain some sort of correction to the parameters.
+Another problem is how to validate this procedure.  The comparison between {\sc Madgraph} and
+{\sc Pythia8} is not enough.  We can potentially use even more restricted phase space to be
+compared with full detector phase space, and demonstrate that the procedure works.
+However one can argue that in the very forward (also very low energy) region MC is not really reliable,
+and that's where we're trying to extrapolate.
+
+Nevertheless, the biggest problem comes from the lack of statistics in the final sample.
+Background from $Z \rightarrow \nu\nu$ in the full 2011 data, is estimated to be of the order of
+100 events, while the branching fraction ratio is roughly 6.  Which means that we won't have
+enough statistics in the final $Z\rightarrow\mu\mu$ sample.
+For now this will serve as a cross check to the other method, and we pursue something else
+as the main method.
+
+
+\DailySubSection{Estimate Z to invisible from photon sample}
+
+Diagrams are the same (to the tree level at least) for Z+jet and photon+jet samples.
+Vertex factor is a bit different, but maybe we can get away with it.
+From the private {\sc Madgraph} samples, I found that the rapidity distribution
+is the same (up to $|y| < 2.5$), while $p_T$ distribution of the vector boson is different.
+Z boson seems to be falling slower.  It's not clear why this is happening.
+Possible differences are some generator cuts on the photon (not on Z):
+
+\begin{enumerate}
+\item minimum distance between photon and jet at least 0.4,
+\item minimum $p_T$ of photon at least 10 GeV/c, and
+\item minimum distance between photons and photons/b-jets/leptons (these probably won't matter).
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\caption{Reweighted photon $M_R$ distribution for different $R$ cuts.}
+\label{Figure_7671_PhotonReweight}
+\end{figure}
+
+Or maybe this is the effect of mass between photon and Z.  The $M_R$ distribution
+is different as a result.  However, when I tried to assign event weight to photon
+samples to reweight $p_T$ spectrum to that of $Z$, $M_R$ and $R$ distribution
+agrees faily well.  See figure \ref{Figure_7671_PhotonReweight} for example.
+$R$ dependence is fairly well-reproduced, but does change a bit when moving between
+different cuts.  This is a possible systematics to be added.
+The strategy for using this to make estimation, is then
+
+\begin{enumerate}
+\item Select a photon sample.
+\item From $Z\rightarrow\mu\mu$ sample, obtain $p_T$ correction factor
+for some restricted phase space (inclusive).
+\item Rescale the b-tagged photon sample using correction factor
+\item Calculate additional acceptance factor from simulation
+\item Apply that as well on the b-tagged photon sample, and fit.
+\end{enumerate}
+
+This brings in additional complications on the ``restricted phase space'' from $Z\rightarrow\mu\mu$
+to photon samples.  Since Z is massive, at low energy some rapidity range can not be probed by the detector.
+Exactly where this is needs additional study from simulation \ActionItem .
+Another question is whether the $p_T$ dependence is real or not.  For this a cross-check
+will be running on the official samples and see if same thing is observed \ActionItem .
+This however needs a bit more time since the sample is only on T1, and the Phedex copy is taking
+a while.  Now the $Z\rightarrow\nu\nu$ samples are done copying, but the photon samples are
+still going slowly.  Hopefully we can have this answer soon.
+
+There are other analyses that do not have this complication.  They seem to just use it and claim it's fine.
+For example there is RA2 analysis which uses photon sample to estimate Z to invisible background.
+The phase space they are probing is at very high MET.  Maybe this is washing out the difference.
+An ancient PAS, SUS-08-002, is also referenced, which includes studies related to this method.
+More look is needed for their analysis note \ActionItem .
+
+For the acceptance factor, again, we need to use simulation.  The steps involve first to show that
+it is relatively independent of particular choice of generator \ActionItem , and next to show that it works
+in principle from data \ActionItem .  This, however, will come after the previous few steps are confirmed,
+and when we are sure we want to pursue this path.
+
+
+\DailySubSection{Choice of b-tagger}
+
+A set of binned $S/\sqrt{S+B}$ plots are done with different b-tagging choices.
+It seems that double-medium tag has the best discrimination power, and double-tight tag kills too much stuff
+and we will be working like crazy to get background estimation since there won't be much b-tagged control region.
+Double-loose tag is a bit worse than double-medium, but we'll keep this possibility around for now,
+since the fitting might benefit from having a bit more background events.
+
+
+\DailySubSection{Thoughts on other topics}
+
+For W+jets I haven't given much thought yet.  One can probably start with characterizing the difference in shape
+between $Z\rightarrow\nu\nu$ and $W\rightarrow l\nu$.  We also need to explicitly confirm that in the tail
+most events are from leptonic decays, and also the contribution from other decays in different region \ActionItem .
+And also whether the shape can be treated as the same or not \ActionItem .
+
+As for the final likelihood, I will try designating a staircase region, in a similar fashion to the SUSY inclusive
+analysis, and performed a constrained fit (with starting parameter and penalty terms
+from other places), thereby getting a total model for the prediction.  We'll see how this
+works out.  Once we have the total model, it's easy to generate results.
+Otherwise we need to play some trick and use the ensemble of background prediction to piece out
+results.  It's a bit more challenging but could be rewarding in that I'll know exactly what
+the limit means.
+
+Agreement between data and simulation also needs to be revisited.  For example the multi-fit with ttbar+jet
+sample in different selections.  This will allow us to place a smaller systematics on shape - if things
+don't work out well enough in the end and we had to use some simulation-based predictions.
+
+
+\DailySection{Progress today}
+
+Modified the code in vecbos to include photons and photon-related variables into the LQ3 reduced tree.
+This is mainly in preparation to the many photon-related studies that I will be focusing on in the
+next few days.  A test run on photon jet sample shows that the branches are filled and are more-or-less
+meaningful.  Some other modifications to the data structure might be useful, for example to cut down
+size of the jet lists, but that will wait until next round.  Launched jobs to run on more stuff over the night.
+
+Noticed that the $Z\rightarrow\nu\nu$ samples are done copying, so I checked out latest version of
+vecbos code and launched jobs to run on those.  It's running pretty slowly (T2 occupied by someone else?).
+Need to wait for this.
+
+Generated {\sc Madgraph} samples without no-jet configurations for photon and Z ($\rightarrow\nu\nu$).
+Verified that the $p_T$ spectrum is still different.
+
+
+
+
 
 
 
