@@ -22,13 +22,13 @@ be double-counting between these two samples.  What is going on?  \ActionItem
 The photon \PT spectrum matches well too.  In the inclusive selection I observe that data
 do not become fully efficient until roughly 200 GeV.  But when we require that $M_R > 400,
 R > 0.5$, an edge at 200 GeV of photon \PT is formed, see \ref{Figure_7731_PhotonPT}.
-As a result it doesn't matter that much where we place the photon \PT cut.
+As a result it doesn't matter that much where we place the photon \PT cut if it's below the edge.
 There is a minimum \PT requirement of 40 GeV in the triggers, so we're lucky in this sense.
 Let's put a cut at 100 GeV then.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\includegraphics[width=0.45\textwidth]{7731/HPhotonPT_MR400R2025_Photon_All_WithLQ250.png}
 \caption{Photon \PT spectrum after minimum \MR and \R cut in the photon-invisible treatment.}
 \label{Figure_7731_PhotonPT}
 \end{figure}
@@ -64,11 +64,16 @@ The other triggers are listed here:
 \end{enumerate}
 Maybe it's one of these triggers... \ActionItem
 
-Anyways, in the plot with $R^2 > 0.20$, \MR seems to be fully efficient above 300-ish, and
+Anyways, cutting 100 GeV, in the plot with $R^2 > 0.20$, \MR seems to be fully efficient above 300-ish, and
 in the plot with $M_R > 400$, \RSquare seems to be fully efficient above 0.15-ish.  So in our
 region of interest it seems to be fine.
 
-
+The next step then is to take a look at the di-muon data and select events around Z pole.
+We have a map of Z acceptance as a function of rapidity.  Let's verify this acceptance using
+MC, since polarization of Z might make a difference.  It turns out that at central rapidity,
+distribution of decay angle is indeed uniform (in $\theta$ direction).  With higher rapidity
+neutrino seems to have lower $\theta$.  Why is it not symmetric?
+Let's launch some jobs on the cluster to gather more statistics with {\sc PYTHIA} then.
 
 
 
