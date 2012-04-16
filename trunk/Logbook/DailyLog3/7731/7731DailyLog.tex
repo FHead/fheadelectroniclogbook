@@ -1,0 +1,74 @@
+\DailyTitle{7731 Log (April 16, 2012)}
+
+\DailySection{Progress log}
+
+Treating leading photon as invisible, and apply the same selection as the SUSY analysis.
+In addition, require all jets at least $\Delta R > 0.3$ away from the leading photon.
+We can look at \MR and \R distributions.  Fortunately, data matches G+jet sample pretty
+well in all cases.  Interestingly, from MC there is non-negligible contribution from QCD
+sample, but data matches well with only G+jet sample.  All other SM background is
+negligible in this treatment.
+
+From MCDB (ID: 3358, 3356, 3306, 3360), the QCD samples are generated with processes
+\begin{enumerate}
+\item p p \textgreater ~j j
+\item p p \textgreater ~j j j
+\item p p \textgreater ~j j j j
+\end{enumerate}
+while in madgraph 1.4.3, "j" = "g u c d s u\tweakedtilde~c\tweakedtilde~d\tweakedtilde
+~s\tweakedtilde", no photon.  So in principle there shouldn't
+be double-counting between these two samples.  What is going on?  \ActionItem
+
+The photon \PT spectrum matches well too.  In the inclusive selection I observe that data
+do not become fully efficient until roughly 200 GeV.  But when we require that $M_R > 400,
+R > 0.5$, an edge at 200 GeV of photon \PT is formed, see \ref{Figure_7731_PhotonPT}.
+As a result it doesn't matter that much where we place the photon \PT cut.
+There is a minimum \PT requirement of 40 GeV in the triggers, so we're lucky in this sense.
+Let's put a cut at 100 GeV then.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
+\caption{Photon \PT spectrum after minimum \MR and \R cut in the photon-invisible treatment.}
+\label{Figure_7731_PhotonPT}
+\end{figure}
+
+The triggers in 2011 in PhotonHad dataset are as follows:
+\begin{enumerate}
+\item HLT\_Photon40\_CaloIDL\_R014\_MR150 (prescaled)
+\item HLT\_Photon40\_CaloIDL\_R017\_MR500
+\item HLT\_Photon40\_CaloIDL\_R023\_MR350
+\item HLT\_Photon40\_CaloIDL\_R029\_MR250
+\item HLT\_Photon40\_CaloIDL\_R042\_MR200
+\item HLT\_Photon55\_CaloIDL\_R017\_MR500
+\item HLT\_Photon55\_CaloIDL\_R023\_MR350
+\item HLT\_Photon55\_CaloIDL\_R029\_MR250
+\item HLT\_Photon55\_CaloIDL\_R042\_MR200
+\end{enumerate}
+Last four triggers are backup triggers it seems.  With the treatment of photon-invisible,
+\MR will decrease, while \R will increase.  Since we're requiring photons at least 100 GeV,
+in terms of \MR threshold probably all triggers are fine.  The relevant question is then how
+much \R increases.  And it increased by a lot.  This thing couldn't possibly have worked.
+What is happening?
+
+The other triggers are listed here:
+\begin{enumerate}
+\item HLT\_Photon60\_CaloIdL\_HT300 (prescaled)
+\item HLT\_Photon60\_CaloIdL\_MHT70 (prescaled)
+\item HLT\_Photon60\_CaloIdXL\_HT400
+\item HLT\_Photon60\_CaloIdXL\_HT500
+\item HLT\_Photon60\_CaloIdXL\_MHT100
+\item HLT\_Photon60\_CaloIdXL\_MHT90
+\item HLT\_Photon90EBOnly\_CaloIdVL\_IsoL\_TriPFJet25
+\item HLT\_Photon90EBOnly\_CaloIdVL\_IsoL\_TriPFJet30
+\end{enumerate}
+Maybe it's one of these triggers... \ActionItem
+
+Anyways, in the plot with $R^2 > 0.20$, \MR seems to be fully efficient above 300-ish, and
+in the plot with $M_R > 400$, \RSquare seems to be fully efficient above 0.15-ish.  So in our
+region of interest it seems to be fine.
+
+
+
+
+
