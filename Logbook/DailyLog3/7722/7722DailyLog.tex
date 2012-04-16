@@ -1,25 +1,52 @@
 \DailyTitle{7722 Log (April 10, 2012)}
 
-\DailySection{Plan for today and on}
+\DailySection{Plan for today (and onwards)}
 
 The main goal for today is to rush in the background estimation from photon+jet.
 
 \begin{enumerate}
+\item Look at photon-related variables for different samples.
+While I don't have easy MC access, hopefully we can verify that the cuts
+(standard ones at least) makes sense.  What to do with isolation?
+\item Rerun everything treating first photon as invisible, and maybe reject events
+with too many photon candidates.   Look at razor distributions.
+\item Derive correction factor from data with Zmumu
+\item Apply everything and compare with Znunu MC - check that inclusive works
+\item Apply everything with b-jets, and derive shape.
 \end{enumerate}
 
 
-\DailySection{Activities so far}
+\DailySection{Checking photon id variables}
 
+From the samples done in the past few days, I looked at the photon ID variables.
+Distributions of the variables look roughly fine, but some distributions look weird.
+For example H/E distribution, when split into photons with pixel seed and without.
+The distribution with pixel seed drops faster at low values, and flattens out faster,
+while ones without pixel seed drops slower.  Above H/E 0.15 curve with pixel seed
+vanishes, and there's a jump up in the no-seed distribution.  Then above 0.5 it
+jumps down again.  In the QCD sample there is a population at very low H/E value,
+while photon+jet sample it's more smooth falling.
 
-% \begin{figure}
-% \centering
-% \includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
-% \includegraphics[width=0.45\textwidth]{ToBeDrawn.png}
-% \caption{Example figure}
-% \label{Figure_6734_ExampleFigure}
-% \end{figure}
+The photon ID used in SUSY diphoton+MET analysis is listed here for reference.
+In their trigger, they have the "IsoVL" version of photon isolation
 
+\begin{enumerate}
+\item Ecal $E_T$ within $\Delta R 0.3 < 0.012 \times E_T + 6$ GeV
+\item Hcal $E_T$ within $\Delta R 0.3 < 0.005 \times E_T + 4$ GeV
+\item Tracker $P_T$ within $\Delta R 0.3 < 0.002 \times E_T + 4$ GeV
+\item $R9 > 0.8$
+\end{enumerate}
 
+During offline analysis,
+
+\begin{enumerate}
+\item $|\eta| < 1.4442$
+\item $P_T > 40 (25)$ for the first two photons
+\item Combined isolation (rho-corrected) $<$ 6 GeV
+\item $H/E < 0.05$
+\item $\sigma_{i\eta i\eta} < 0.011$
+\item $R9 < 1.0$
+\end{enumerate}
 
 
 
